@@ -1,10 +1,10 @@
 package main;
 
-import java.sql.SQLException;
-
 import controller.ControllerFacade;
 import model.ModelFacade;
 import view.ViewFacade;
+
+import java.sql.SQLException;
 
 /**
  * <h1>The Class Main.</h1>
