@@ -7,6 +7,7 @@ public abstract class Entity implements Entityable {
     private int x;
     private int y;
     private boolean isAlive;
+    private Direction direction;
 
     public int getX(){
         return x;
@@ -25,5 +26,13 @@ public abstract class Entity implements Entityable {
     }
     public void setIsAlive(boolean isAlive){
         this.isAlive = isAlive;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }
