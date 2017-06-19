@@ -2,6 +2,7 @@ package main;
 
 import controller.ControllerFacade;
 import model.ModelFacade;
+import model.Player;
 import view.ViewFacade;
 
 import java.sql.SQLException;
@@ -22,6 +23,8 @@ public abstract class Main {
      */
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+
+        controller.getModel().addEntity(new Player());
 
         try {
             controller.start();
