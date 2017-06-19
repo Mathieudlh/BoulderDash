@@ -5,6 +5,9 @@ import java.util.List;
 
 import model.dao.ExampleDAO;
 
+import javax.swing.text.html.parser.*;
+import javax.swing.text.html.parser.Entity;
+
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
@@ -20,10 +23,15 @@ public class ModelFacade implements IModel {
         super();
     }
 
+    @Override
+    public void addEntity(Entity entity) {
+
+    }
+
     /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
-     */
+         * (non-Javadoc)
+         * @see model.IModel#getExampleById(int)
+         */
     @Override
     public Example getExampleById(final int id) throws SQLException {
         return ExampleDAO.getExampleById(id);

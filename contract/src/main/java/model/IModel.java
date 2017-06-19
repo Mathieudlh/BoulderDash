@@ -1,5 +1,6 @@
 package model;
 
+import javax.swing.text.html.parser.Entity;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import java.util.List;
  * @version 1.0
  */
 public interface IModel {
+
+    void addEntity(Entity entity);
 
     /**
      * Gets the example by id.
