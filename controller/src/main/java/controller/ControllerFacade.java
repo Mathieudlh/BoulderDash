@@ -1,11 +1,11 @@
 package controller;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import model.Example;
+import model.Entityable;
 import model.IModel;
 import view.IView;
+
+import java.awt.image.BufferedImage;
+import java.sql.SQLException;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
@@ -15,45 +15,38 @@ import view.IView;
  */
 public class ControllerFacade implements IController {
 
-    /** The view. */
-    private final IView  view;
+    /**
+     * The view.
+     */
+    private final IView view;
 
-    /** The model. */
+    /**
+     * The model.
+     */
     private final IModel model;
+
+    private boolean isGameOver;
 
     /**
      * Instantiates a new controller facade.
      *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
+     * @param view  the view
+     * @param model the model
      */
     public ControllerFacade(final IView view, final IModel model) {
         super();
         this.view = view;
         this.model = model;
+        this.isGameOver = false;
     }
 
     /**
      * Start.
      *
-     * @throws SQLException
-     *             the SQL exception
+     * @throws SQLException the SQL exception
      */
     public void start() throws SQLException {
-        this.getView().displayMessage(this.getModel().getExampleById(1).toString());
-
-        this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
-
-        final List<Example> examples = this.getModel().getAllExamples();
-        final StringBuilder message = new StringBuilder();
-        // a.append(" bar);
-        for (final Example example : examples) {
-            message.append(example);
-            message.append('\n');
-        }
-        this.getView().displayMessage(message.toString());
+        gameLoop();
     }
 
     /**
@@ -72,5 +65,23 @@ public class ControllerFacade implements IController {
      */
     public IModel getModel() {
         return this.model;
+    }
+
+    private void gameLoop() {
+        while (!isGameOver) {
+
+            this.getView().displayMessage("Message");
+
+            for (Entityable entity : this.getModel().getEntities()) {
+                if (entity.isPlayer())
+                    entity.move();
+            }
+
+            this.render();
+        }
+    }
+
+    private void render() {
+        this.getView().drawMap(new BufferedImage(1, 1, 1));//TODO finir
     }
 }
