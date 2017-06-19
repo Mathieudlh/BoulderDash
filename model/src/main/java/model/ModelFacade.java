@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.ExampleDAO;
@@ -21,11 +22,6 @@ public class ModelFacade implements IModel {
      */
     public ModelFacade() {
         super();
-    }
-
-    @Override
-    public void addEntity(Entity entity) {
-
     }
 
     /*
@@ -53,6 +49,16 @@ public class ModelFacade implements IModel {
     @Override
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
+    }
+
+    @Override
+    public void addEntity(Entityable entity) {
+
+    }
+
+    @Override
+    public ArrayList<Entityable> getEntities() {
+        return null;
     }
 
 }

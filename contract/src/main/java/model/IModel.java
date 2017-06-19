@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,6 @@ import java.util.List;
  * @version 1.0
  */
 public interface IModel {
-
-    void addEntity(Entity entity);
 
     /**
      * Gets the example by id.
@@ -38,4 +37,8 @@ public interface IModel {
      * @throws SQLException the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
+
+    void addEntity(Entityable entity);
+
+    ArrayList<Entityable> getEntities();
 }
