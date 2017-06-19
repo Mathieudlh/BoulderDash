@@ -1,9 +1,11 @@
 package model;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Created by Utilisateur on 16/06/2017.
  */
-public class Map {
+public class Map implements Mapable {
 
     protected Tile tile;
 
@@ -21,5 +23,10 @@ public class Map {
     }
     public void setTile(Tile tile){
         this.tile = tile;
+    }
+
+    @Override
+    public BufferedImage getImage() {
+        return null;
     }
 }
