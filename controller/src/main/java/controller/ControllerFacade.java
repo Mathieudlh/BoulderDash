@@ -4,7 +4,6 @@ import model.Entityable;
 import model.IModel;
 import view.IView;
 
-import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 
 /**
@@ -82,6 +81,6 @@ public class ControllerFacade implements IController {
     }
 
     private void render() {
-        this.getView().drawMap(new BufferedImage(1, 1, 1));//TODO finir
+        this.getView().drawMap(this.getModel().getMap().getImage());
     }
 }

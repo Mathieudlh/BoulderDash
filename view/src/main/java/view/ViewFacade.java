@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.JOptionPane;
+import java.awt.image.BufferedImage;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -24,6 +25,11 @@ public class ViewFacade implements IView {
     @Override
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
+    }
+
+    @Override
+    public void drawMap(BufferedImage image) {
+
     }
 
 }
