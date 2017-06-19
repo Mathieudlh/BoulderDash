@@ -41,4 +41,6 @@ public interface IModel {
     void addEntity(Entityable entity);
 
     ArrayList<Entityable> getEntities();
+
+    Mapable getMap();
 }
