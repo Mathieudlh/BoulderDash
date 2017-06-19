@@ -1,6 +1,5 @@
 package model;
 
-import javax.swing.text.html.parser.Entity;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,22 +16,18 @@ public interface IModel {
     /**
      * Gets the example by id.
      *
-     * @param id
-     *            the id
+     * @param id the id
      * @return the example by id
-     * @throws SQLException
-     *             the SQL exception
+     * @throws SQLException the SQL exception
      */
     Example getExampleById(int id) throws SQLException;
 
     /**
      * Gets the example by name.
      *
-     * @param name
-     *            the name
+     * @param name the name
      * @return the example by name
-     * @throws SQLException
-     *             the SQL exception
+     * @throws SQLException the SQL exception
      */
     Example getExampleByName(String name) throws SQLException;
 
@@ -40,8 +35,7 @@ public interface IModel {
      * Gets the all examples.
      *
      * @return the all examples
-     * @throws SQLException
-     *             the SQL exception
+     * @throws SQLException the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
 }
