@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.image.BufferedImage;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -15,4 +17,6 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+
+    void drawMap(BufferedImage image);
 }
