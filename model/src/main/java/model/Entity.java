@@ -9,6 +9,8 @@ public abstract class Entity implements Entityable {
     private boolean isAlive;
     private Direction direction;
 
+    protected ModelFacade modelFacade;
+
     public int getX(){
         return x;
     }
@@ -34,5 +36,13 @@ public abstract class Entity implements Entityable {
 
     public Direction getDirection() {
         return direction;
+    }
+
+    public ModelFacade getModelFacade(){
+        return this.modelFacade;
+    }
+
+    public void setModelFacade(ModelFacade modelFacade){
+        this.modelFacade = modelFacade;
     }
 }

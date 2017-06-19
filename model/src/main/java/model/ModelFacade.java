@@ -17,11 +17,16 @@ import javax.swing.text.html.parser.Entity;
  */
 public class ModelFacade implements IModel {
 
+    private Map map;
+    protected Entity entity;
+
     /**
      * Instantiates a new model facade.
      */
     public ModelFacade() {
         super();
+
+        map = new Map();
     }
 
     /*
@@ -61,4 +66,15 @@ public class ModelFacade implements IModel {
         return null;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public Entity getEntity() {
+        return this.entity;
+    }
+
+    public void setEntity(Entity entity) {
+        this.entity = entity;
+    }
 }
