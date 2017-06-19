@@ -1,12 +1,10 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.*;
-
 import model.dao.ExampleDAO;
 
-import javax.swing.text.html.parser.*;
-import javax.swing.text.html.parser.Entity;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -17,122 +15,7 @@ import javax.swing.text.html.parser.Entity;
 public class ModelFacade implements IModel {
 
     private Map map;
-    private ArrayList<Entity> entities = new ArrayList<Entity>() {
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public boolean contains(Object o) {
-            return false;
-        }
-
-        @Override
-        public Iterator<Entity> iterator() {
-            return null;
-        }
-
-        @Override
-        public Object[] toArray() {
-            return new Object[0];
-        }
-
-        @Override
-        public <T> T[] toArray(T[] a) {
-            return null;
-        }
-
-        @Override
-        public boolean add(Entity entity) {
-            return false;
-        }
-
-        @Override
-        public boolean remove(Object o) {
-            return false;
-        }
-
-        @Override
-        public boolean containsAll(Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(Collection<? extends Entity> c) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(int index, Collection<? extends Entity> c) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public Entity get(int index) {
-            return null;
-        }
-
-        @Override
-        public Entity set(int index, Entity element) {
-            return null;
-        }
-
-        @Override
-        public void add(int index, Entity element) {
-
-        }
-
-        @Override
-        public Entity remove(int index) {
-            return null;
-        }
-
-        @Override
-        public int indexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public int lastIndexOf(Object o) {
-            return 0;
-        }
-
-        @Override
-        public ListIterator<Entity> listIterator() {
-            return null;
-        }
-
-        @Override
-        public ListIterator<Entity> listIterator(int index) {
-            return null;
-        }
-
-        @Override
-        public List<Entity> subList(int fromIndex, int toIndex) {
-            return null;
-        }
-    };
+    private ArrayList<Entityable> entities;
 
     /**
      * Instantiates a new model facade.
@@ -141,6 +24,7 @@ public class ModelFacade implements IModel {
         super();
 
         map = new Map();
+        entities = new ArrayList<>();
     }
 
     /*
@@ -177,7 +61,7 @@ public class ModelFacade implements IModel {
 
     @Override
     public ArrayList<Entityable> getEntities() {
-        return null;
+        return entities;
     }
 
     public Map getMap() {
