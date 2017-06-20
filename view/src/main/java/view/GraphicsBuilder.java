@@ -1,5 +1,6 @@
 package view;
 
+import model.Entityable;
 import model.IModel;
 
 import java.awt.*;
@@ -22,15 +23,7 @@ public class GraphicsBuilder {
 
     }
 
-    private void drawMobile (IMobile mobile, Graphics graphics, ImageObserver observer) {
+    private void drawMobile (Entityable entity, Graphics graphics, ImageObserver observer) {
 
-    }
-
-    public int getGlobalWidth(){
-        return GlobalWidth;
-    }
-
-    public int getGlobalHeight(){
-        return GlobalHeight;
     }
 }

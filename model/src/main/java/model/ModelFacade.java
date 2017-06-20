@@ -23,7 +23,7 @@ public class ModelFacade implements IModel {
     public ModelFacade() {
         super();
 
-        map = new Map("",0,0);
+        map = new Map("", 0, 0);
         entities = new ArrayList<>();
     }
 

@@ -13,11 +13,11 @@ public class GamePanel extends JPanel{
 
     }
 
-    public update (Observable observable){
+    public void update(Observable observable){
 
     }
 
-    public void paintComponent (Graphics graphics){
+    public void paintComponent(Graphics graphics){
 
     }
 

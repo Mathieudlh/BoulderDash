@@ -70,8 +70,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private void gameLoop() {
         while (!isGameOver) {
 
-            this.getView().displayMessage("Message");
-
             for (Entityable entity : this.getModel().getEntities()) {
                 if (entity.isPlayer())
                     entity.move();
@@ -90,22 +88,28 @@ public class ControllerFacade implements IController, OrderPerformerable {
         if(userOrder != null) {
             Direction direction;
             Entityable player = this.getModel().getPlayer();
+            int x = player.getX();
+            int y = player.getY();
 
             switch (userOrder.getOrder()) {
                 case UP:
                     direction = Direction.UP;
+                    player.setY(y--);
                     break;
 
                 case DOWN:
                     direction = Direction.DOWN;
+                    player.setY(y++);
                     break;
 
                 case LEFT:
                     direction = Direction.LEFT;
+                    player.setX(x--);
                     break;
 
                 case RIGHT:
                     direction = Direction.RIGHT;
+                    player.setX(x++);
                     break;
 
                 default:
