@@ -1,7 +1,11 @@
 package view;
 
-import javax.swing.JOptionPane;
+import gameframe.GameFrame;
+import oracle.jrockit.jfr.JFR;
+
+import javax.swing.*;
 import java.awt.image.BufferedImage;
+
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -10,6 +14,8 @@ import java.awt.image.BufferedImage;
  * @version 1.0
  */
 public class ViewFacade implements IView {
+
+    GameFrame gameframe;
 
     /**
      * Instantiates a new view facade.
@@ -29,7 +35,11 @@ public class ViewFacade implements IView {
 
     @Override
     public void drawMap(BufferedImage image) {
+    }
 
+    @Override
+    public void createWindow(int width, int height) {
+        gameframe = new GameFrame("Boulder Dash", width, height);
     }
 
 }

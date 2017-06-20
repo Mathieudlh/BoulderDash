@@ -20,4 +20,6 @@ public interface IView {
     void drawMap(BufferedImage image);
 
     void drawPlayer(BufferedImage image);
+
+    void createWindow(int width, int height);
 }
