@@ -1,5 +1,10 @@
 package view;
 
+import controller.Order;
+import controller.OrderPerformerable;
+import controller.UserOrder;
+import controller.UserOrderable;
+
 import java.awt.event.KeyEvent;
 
 /**
@@ -7,31 +12,31 @@ import java.awt.event.KeyEvent;
  */
 public class EventPerformer {
 
-    public EventPerformer(IOrderPerformer orderPerformer){
+    public EventPerformer(OrderPerformerable orderPerformer) {
 
     }
 
-    public eventPerform(KeyEvent keyCode) {
+    public void eventPerform(KeyEvent keyCode) {
 
     }
 
-    private UserOrder keyCodeToUserOrder(int keyCode) {
+    private UserOrderable keyCodeToUserOrder(int keyCode) {
 
-    UserOrder userOrder;
+        UserOrderable userOrder = null;
 
         switch (keyCode) {
 
             case KeyEvent.VK_UP:
-                userOrder = new UserOrder(0, Order.UP);
+                userOrder = new UserOrder(Order.UP);
                 break;
             case KeyEvent.VK_RIGHT:
-                userOrder = new UserOrder(0, Order.RIGHT);
+                userOrder = new UserOrder(Order.RIGHT);
                 break;
             case KeyEvent.VK_DOWN:
-                userOrder = new UserOrder(0, Order.DOWN);
+                userOrder = new UserOrder(Order.DOWN);
                 break;
             case KeyEvent.VK_LEFT:
-                userOrder = new UserOrder(0, Order.LEFT);
+                userOrder = new UserOrder(Order.LEFT);
                 break;
 
         }
