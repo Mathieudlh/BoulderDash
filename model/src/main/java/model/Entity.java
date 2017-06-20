@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by Utilisateur on 16/06/2017.
@@ -58,5 +59,5 @@ public abstract class Entity implements Entityable {
         this.modelFacade = modelFacade;
     }
 
-    public abstract Image getImage();
+    public abstract BufferedImage getImage();
 }

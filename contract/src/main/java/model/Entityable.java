@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by Utilisateur on 16/06/2017.
@@ -8,15 +8,24 @@ import java.awt.*;
 public interface Entityable {
 
     int getX();
+
     int getY();
+
     void setX(int x);
+
     void setY(int y);
+
     boolean getIsAlive();
+
     void setIsAlive(boolean isAlive);
+
     boolean isPlayer();
+
     void move();
+
     void setDirection(Direction direction);
+
     Direction getDirection();
 
-    void getImage();
+    BufferedImage getImage();
 }
