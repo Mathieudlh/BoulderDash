@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.*;
+
 /**
  * Created by Utilisateur on 16/06/2017.
  */
@@ -55,4 +57,6 @@ public abstract class Entity implements Entityable {
     public void setModelFacade(ModelFacade modelFacade){
         this.modelFacade = modelFacade;
     }
+
+    public abstract Image getImage();
 }

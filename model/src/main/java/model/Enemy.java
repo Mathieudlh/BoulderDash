@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.*;
+
 /**
  * Created by Utilisateur on 16/06/2017.
  */
@@ -17,5 +19,10 @@ public class Enemy extends Entity{
     @Override
     public void move() {
 
+    }
+
+    @Override
+    public Image getImage(int id) {
+        return null;
     }
 }
