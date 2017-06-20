@@ -1,5 +1,7 @@
 package view;
 
+import model.IModel;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
@@ -8,8 +10,11 @@ import java.awt.image.ImageObserver;
  */
 public class GraphicsBuilder {
 
-    public GraphicsBuilder (IModel boulderDashModel);
-    public void applyModelToGraphic (Graphics graphics, ImageObserver observer);{
+    public GraphicsBuilder(IModel boulderDashModel) {
+
+    }
+
+    public void applyModelToGraphic(Graphics graphics, ImageObserver observer) {
 
     }
 
