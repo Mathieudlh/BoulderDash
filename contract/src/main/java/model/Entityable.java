@@ -13,5 +13,7 @@ public interface Entityable {
     void setIsAlive(boolean isAlive);
     boolean isPlayer();
     void move();
+    void setDirection(Direction direction);
+    Direction getDirection();
 
 }
