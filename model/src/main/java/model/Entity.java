@@ -4,12 +4,22 @@ package model;
  * Created by Utilisateur on 16/06/2017.
  */
 public abstract class Entity implements Entityable {
-    private int x;
-    private int y;
+    protected int x;
+    protected int y;
     private boolean isAlive;
     private Direction direction;
 
     protected ModelFacade modelFacade;
+
+    public Entity(int x, int y){
+        this.x = x;
+        this.y = y;
+
+    }
+
+    public Entity(){
+
+    }
 
     public int getX(){
         return x;
