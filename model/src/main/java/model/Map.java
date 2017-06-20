@@ -7,24 +7,21 @@ import java.awt.image.BufferedImage;
  */
 public class Map implements Mapable {
 
-    protected Tile tile;
     private int width, height;
-    private int [][] tiles;
+    private Tile[][] tiles;
 
-    public Map(String path, int width, int height){
-        tile = new Tile() {
-            @Override
-            public int getTileNumber() {
-                return 0;
-            }
-        };
+    public Map(String path, int width, int height) {
+        tiles = new Tile[width][height];
+        this.width = width;
+        this.height = height;
     }
 
-    public Tile getTile(){
-        return this.tile;
+    public Tile getTiles(int x, int y) {
+        return this.tiles[x][y];
     }
-    public void setTile(Tile tile){
-        this.tile = tile;
+
+    public void setTiles(Tile tile, int x, int y) {
+        this.tiles[x][y] = tile;
     }
 
     @Override
