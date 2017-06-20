@@ -1,5 +1,6 @@
 package controller;
 
+import model.Direction;
 import model.Entityable;
 import model.IModel;
 import view.IView;
@@ -12,7 +13,7 @@ import java.sql.SQLException;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ControllerFacade implements IController {
+public class ControllerFacade implements IController, OrderPerformerable {
 
     /**
      * The view.
@@ -82,5 +83,36 @@ public class ControllerFacade implements IController {
 
     private void render() {
         this.getView().drawMap(this.getModel().getMap().getImage());
+    }
+
+    @Override
+    public void orderPerform(UserOrderable userOrder) {
+        if(userOrder != null) {
+            Direction direction;
+            Entityable player = this.getModel().getPlayer();
+
+            switch (userOrder.getOrder()) {
+                case UP:
+                    direction = Direction.UP;
+                    break;
+
+                case DOWN:
+                    direction = Direction.DOWN;
+                    break;
+
+                case LEFT:
+                    direction = Direction.LEFT;
+                    break;
+
+                case RIGHT:
+                    direction = Direction.RIGHT;
+                    break;
+
+                default:
+                    direction = player.getDirection();
+            }
+
+            player.setDirection(direction);
+        }
     }
 }
