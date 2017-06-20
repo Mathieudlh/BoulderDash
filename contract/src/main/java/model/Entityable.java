@@ -16,6 +16,7 @@ public interface Entityable {
     boolean isPlayer();
     void move();
     void setDirection(Direction direction);
-    Direction getDirection()
+    Direction getDirection();
 
+    void getImage();
 }
