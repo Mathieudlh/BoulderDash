@@ -43,4 +43,6 @@ public interface IModel {
     ArrayList<Entityable> getEntities();
 
     Mapable getMap();
+
+    Entityable getPlayer();
 }
