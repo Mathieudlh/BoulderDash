@@ -13,10 +13,11 @@ public interface IView {
     /**
      * Display message.
      *
-     * @param message
-     *            the message
+     * @param message the message
      */
     void displayMessage(String message);
 
     void drawMap(BufferedImage image);
+
+    void drawPlayer(BufferedImage image);
 }
