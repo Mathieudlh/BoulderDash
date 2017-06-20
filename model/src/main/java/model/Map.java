@@ -8,8 +8,10 @@ import java.awt.image.BufferedImage;
 public class Map implements Mapable {
 
     protected Tile tile;
+    private int width, height;
+    private int [][] tiles;
 
-    public Map(){
+    public Map(String path, int width, int height){
         tile = new Tile() {
             @Override
             public int getTileNumber() {
