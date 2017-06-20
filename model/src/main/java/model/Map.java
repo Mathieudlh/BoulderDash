@@ -10,7 +10,7 @@ public class Map implements Mapable {
     private int width, height;
     private Tile[][] tiles;
 
-    public Map() {
+    public Map(String path, int width, int height) {
         tiles = new Tile[width][height];
         this.width = width;
         this.height = height;
