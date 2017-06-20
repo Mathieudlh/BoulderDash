@@ -12,7 +12,14 @@ public abstract class Tile implements Tileable{
 
     private int TILE_SIZE = 32;
 
+    public static Tile[] tiles = new Tile[10];
+    public static Tile rock = new Rock();
+    public static Tile diamond = new Diamond();
+    public static Tile wall = new Wall();
+    public static Tile dirt = new Dirt();
+
     public Tile(){
+
         image = new Image() {
             @Override
             public int getWidth(ImageObserver observer) {
