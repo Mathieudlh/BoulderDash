@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.*;
+
 /**
  * Created by Utilisateur on 16/06/2017.
  */
@@ -14,6 +16,6 @@ public interface Entityable {
     boolean isPlayer();
     void move();
     void setDirection(Direction direction);
-    Direction getDirection();
+    Direction getDirection()
 
 }
