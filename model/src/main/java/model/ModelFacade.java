@@ -68,4 +68,9 @@ public class ModelFacade implements IModel {
         return map;
     }
 
+    @Override
+    public Entityable getPlayer() {
+        return null;
+    }
+
 }
