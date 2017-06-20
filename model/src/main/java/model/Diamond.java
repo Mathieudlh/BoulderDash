@@ -5,10 +5,6 @@ package model;
  */
 public class Diamond extends Tile implements Fallable{
 
-    private int TILE_NUMBER = 4;
+    public static final int TILE_NUMBER = 4;
 
-    @Override
-    public int getTileNumber() {
-        return 0;
-    }
 }
