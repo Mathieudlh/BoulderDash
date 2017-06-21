@@ -9,20 +9,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Assets {
-
-    public Tile[] tiles = new Tile[];
-    public static Tile wallTile = new WallTile(0);
-    public static Tile rockTile = new RockTile(1);
-
-
-
-
-
-
-
-
-
-
+    
     /*player_down = new BufferedImage[4];
     player_up = new BufferedImage[4];
     player_left = new BufferedImage[3];
