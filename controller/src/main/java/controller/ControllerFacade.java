@@ -38,7 +38,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.view = view;
         this.model = model;
         this.isGameOver = false;
-        //view.createWindow(this.getModel().getMap().getWidth(), this.getModel().getMap().getHeight());
         view.createWindow(1920, 1000);
     }
 
@@ -72,9 +71,11 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private void gameLoop() {
         while (!isGameOver) {
 
-            for (Entityable entity : this.getModel().getEntities()) {
-                if (entity.isPlayer())
-                    entity.move();
+            if(this.getModel().getEntities() != null) {
+                for (Entityable entity : this.getModel().getEntities()) {
+                    if (entity.isPlayer())
+                        entity.move();
+                }
             }
 
             this.render();
@@ -83,6 +84,10 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
     private void render() {
         this.getView().drawMap(this.getModel().getMap().getImage());
+
+        if(this.getModel().getPlayer() != null)
+            if(this.getModel().getPlayer().getImage() != null)
+                this.getView().drawPlayer(this.getModel().getPlayer().getImage());
     }
 
     @Override

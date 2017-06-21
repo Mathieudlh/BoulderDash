@@ -56,7 +56,7 @@ public class ModelFacade implements IModel {
 
     @Override
     public void addEntity(Entityable entity) {
-
+        entities.add(entity);
     }
 
     @Override
@@ -70,6 +70,10 @@ public class ModelFacade implements IModel {
 
     @Override
     public Entityable getPlayer() {
+        for(Entityable entity : entities) {
+            if(entity.isPlayer())
+                return entity;
+        }
         return null;
     }
 

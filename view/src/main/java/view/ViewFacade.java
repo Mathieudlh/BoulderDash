@@ -1,7 +1,6 @@
 package view;
 
 import gameframe.GameFrame;
-import oracle.jrockit.jfr.JFR;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
