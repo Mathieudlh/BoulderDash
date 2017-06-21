@@ -35,13 +35,6 @@ public class Map implements Mapable {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                System.out.print(tiles[i][j]);
-            }
-            System.out.println();
-        }
-
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
                 switch ((int) str_tmp[i][j].charAt(0) - 48) {
                     case Diamond.TILE_NUMBER:
                         tiles[i][j] = new Diamond();
