@@ -24,21 +24,21 @@ DELIMITER $$
 --
 -- Procédures
 --
-CREATE DEFINER=`Adrien`@`%` PROCEDURE `callMap`(IN id INT)
+CREATE PROCEDURE `callMap`(IN id INT)
 BEGIN
 SELECT map_structure
 FROM MAP
 Where map_ID = id;
 END$$
 
-CREATE DEFINER=`Adrien`@`%` PROCEDURE `getHeight`(IN id INT)
+CREATE PROCEDURE `getHeight`(IN id INT)
 BEGIN
 SELECT height
 FROM MAP
 WHERE map_ID = id;
 END$$
 
-CREATE DEFINER=`Adrien`@`%` PROCEDURE `getWidth`(IN id INT)
+CREATE PROCEDURE `getWidth`(IN id INT)
 BEGIN
 SELECT width
 FROM MAP
