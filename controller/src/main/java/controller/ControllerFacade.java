@@ -38,7 +38,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.view = view;
         this.model = model;
         this.isGameOver = false;
-        //view.createWindow(this.getModel().getMap().getWidth(), this.getModel().getMap().getHeight());
         view.createWindow(1920, 1000);
     }
 
