@@ -7,4 +7,8 @@ public class Diamond extends Tile implements Fallable{
 
     public static final int TILE_NUMBER = 4;
 
+    @Override
+    public int getNumber() {
+        return TILE_NUMBER;
+    }
 }

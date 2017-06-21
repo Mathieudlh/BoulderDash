@@ -5,4 +5,9 @@ package model;
  */
 public class Exit extends Tile {
     public static final int TILE_NUMBER = 6;
+
+    @Override
+    public int getNumber() {
+        return TILE_NUMBER;
+    }
 }

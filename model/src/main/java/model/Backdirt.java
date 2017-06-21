@@ -5,4 +5,9 @@ package model;
  */
 public class Backdirt extends Tile {
     public static final int TILE_NUMBER = 2;
+
+    @Override
+    public int getNumber() {
+        return TILE_NUMBER;
+    }
 }

@@ -7,4 +7,8 @@ public class Wall extends Tile{
 
     public static final int TILE_NUMBER = 0;
 
+    @Override
+    public int getNumber() {
+        return TILE_NUMBER;
+    }
 }

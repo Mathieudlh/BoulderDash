@@ -7,4 +7,8 @@ public class Rock extends Tile implements Fallable{
 
     public static final int TILE_NUMBER = 3;
 
+    @Override
+    public int getNumber() {
+        return TILE_NUMBER;
+    }
 }
