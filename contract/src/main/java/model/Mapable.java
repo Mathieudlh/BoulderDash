@@ -9,4 +9,10 @@ public interface Mapable {
 
     BufferedImage getImage();
 
+    Tileable[][] getTiles();
+
+    int getWidth();
+
+    int getHeight();
+
 }
