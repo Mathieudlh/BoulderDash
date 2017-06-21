@@ -38,6 +38,11 @@ public class ViewFacade implements IView {
     }
 
     @Override
+    public void drawPlayer(BufferedImage image) {
+
+    }
+
+    @Override
     public void createWindow(int width, int height) {
         gameframe = new GameFrame("Boulder Dash", width, height);
     }
