@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,32 +13,6 @@ import java.util.List;
  */
 public interface IModel {
 
-    /**
-     * Gets the example by id.
-     *
-     * @param id the id
-     * @return the example by id
-     * @throws SQLException the SQL exception
-     */
-    Example getExampleById(int id) throws SQLException;
-
-    /**
-     * Gets the example by name.
-     *
-     * @param name the name
-     * @return the example by name
-     * @throws SQLException the SQL exception
-     */
-    Example getExampleByName(String name) throws SQLException;
-
-    /**
-     * Gets the all examples.
-     *
-     * @return the all examples
-     * @throws SQLException the SQL exception
-     */
-    List<Example> getAllExamples() throws SQLException;
-
     String readMap(int id) throws SQLException;
 
     void addEntity(Entityable entity);
@@ -47,4 +22,6 @@ public interface IModel {
     Mapable getMap();
 
     Entityable getPlayer();
+
+    BufferedImage getTileset();
 }

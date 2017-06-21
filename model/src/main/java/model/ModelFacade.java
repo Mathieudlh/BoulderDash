@@ -3,6 +3,10 @@ package model;
 import model.dao.ExampleDAO;
 import model.dao.mapDAO;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,33 +36,6 @@ public class ModelFacade implements IModel {
         entities = new ArrayList<>();
     }
 
-    /*
-         * (non-Javadoc)
-         * @see model.IModel#getExampleById(int)
-         */
-    @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }
-
     @Override
     public String readMap(int id) throws SQLException {
         return mapDAO.readMap(id);
@@ -85,6 +62,19 @@ public class ModelFacade implements IModel {
                 return entity;
         }
         return null;
+    }
+
+    @Override
+    public BufferedImage getTileset() {
+        BufferedImage image = null;
+
+        try {
+            image = ImageIO.read(new File("res/textures/tileset.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return image;
     }
 
 }

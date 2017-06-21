@@ -23,7 +23,6 @@ public abstract class mapDAO extends AbstractDAO {
             final ResultSet result = callStatementMapCode.getResultSet();
             if (result.first()) {
                 mapCode = result.getString(1);
-                System.out.println(mapCode);
             }
             result.close();
         }
