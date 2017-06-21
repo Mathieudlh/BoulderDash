@@ -23,6 +23,11 @@ public class mapDAO {
             result.close();
         }
         return mapCode;
+    public void setMap(int id){
+
+        SqlMap = "CALL callMap("+id+")";
+        SqlWidth = "CALL getWidth("+id+")";
+        SqlHeight = "CALL getHeight("+id+")";
     }
 
 }
