@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 public interface Mapable {
 
     BufferedImage getImage();
+    void setImage(BufferedImage image);
 
     Tileable[][] getTiles();
 

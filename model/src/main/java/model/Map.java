@@ -51,6 +51,14 @@ public class Map implements Mapable {
                     case Wall.TILE_NUMBER:
                         tiles[i][j] = new Wall();
                         break;
+
+                    case Exit.TILE_NUMBER:
+                        tiles[i][j] = new Exit();
+                        break;
+
+                    case Backdirt.TILE_NUMBER:
+                        tiles[i][j] = new Backdirt();
+                        break;
                 }
             }
         }
@@ -67,6 +75,11 @@ public class Map implements Mapable {
     @Override
     public BufferedImage getImage() {
         return image;
+    }
+
+    @Override
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 
     @Override

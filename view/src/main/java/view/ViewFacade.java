@@ -34,6 +34,7 @@ public class ViewFacade implements IView {
 
     @Override
     public void drawMap(BufferedImage image) {
+        gameframe.setImageMap(image);
     }
 
     @Override

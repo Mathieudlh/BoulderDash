@@ -6,6 +6,8 @@ import model.IModel;
 import model.Tileable;
 import view.IView;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 
 /**
@@ -39,7 +41,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.view = view;
         this.model = model;
         this.isGameOver = false;
-        view.createWindow(1920, 1000);
+        view.createWindow(1280, 720);
 
         this.buildMap();
     }
@@ -74,40 +76,50 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private void gameLoop() {
         while (!isGameOver) {
 
-            if(this.getModel().getEntities() != null) {
+            if (this.getModel().getEntities() != null) {
                 for (Entityable entity : this.getModel().getEntities()) {
                     if (entity.isPlayer())
                         entity.move();
                 }
             }
 
-            this.buildMap();
+//            this.buildMap();
             this.render();
         }
     }
 
     private void buildMap() {
         Tileable[][] tiles = this.getModel().getMap().getTiles();
+        BufferedImage tmp = new BufferedImage(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16, BufferedImage.TYPE_INT_RGB);
 
-        for(int i = 0; i < tiles.length; i++) {
-            for(int j = 0; j < tiles[i].length; j++) {
-//                System.out.print(tiles[i][j]);
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles[i].length; j++) {
+                int num = tiles[i][j].getNumber();
+
+                int x = num % 12 * 16;
+                int y = num / 12 * 16;
+
+                BufferedImage tile = this.getModel().getTileset().getSubimage(x, y, 16, 16);
+
+                Graphics2D g = tmp.createGraphics();
+                g.drawImage(tile, i * 16, j * 16, null);
             }
-//            System.out.println();
         }
+
+        this.getModel().getMap().setImage(tmp);
     }
 
     private void render() {
         this.getView().drawMap(this.getModel().getMap().getImage());
 
-        if(this.getModel().getPlayer() != null)
-            if(this.getModel().getPlayer().getImage() != null)
+        if (this.getModel().getPlayer() != null)
+            if (this.getModel().getPlayer().getImage() != null)
                 this.getView().drawPlayer(this.getModel().getPlayer().getImage());
     }
 
     @Override
     public void orderPerform(UserOrderable userOrder) {
-        if(userOrder != null) {
+        if (userOrder != null) {
             Direction direction;
             Entityable player = this.getModel().getPlayer();
             int x = player.getX();
