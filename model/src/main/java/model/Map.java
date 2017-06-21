@@ -11,10 +11,10 @@ public class Map implements Mapable {
     private Tile[][] tiles;
     private BufferedImage image;
 
-    public Map(String path) {
+    public Map(String map) {
         tiles = new Tile[height][width];
         image = new BufferedImage(width + 1, height + 1, BufferedImage.TYPE_INT_RGB);
-        stringToTilesMap("0,1,0,0,0,0\n0,1,1,1,0,0");
+        stringToTilesMap(map);
     }
 
     private void stringToTilesMap(String str) {

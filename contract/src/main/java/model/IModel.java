@@ -38,6 +38,8 @@ public interface IModel {
      */
     List<Example> getAllExamples() throws SQLException;
 
+    String readMap(int id) throws SQLException;
+
     void addEntity(Entityable entity);
 
     ArrayList<Entityable> getEntities();

@@ -3,6 +3,7 @@ package controller;
 import model.Direction;
 import model.Entityable;
 import model.IModel;
+import model.Tileable;
 import view.IView;
 
 import java.sql.SQLException;
@@ -39,6 +40,8 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.model = model;
         this.isGameOver = false;
         view.createWindow(1920, 1000);
+
+        this.buildMap();
     }
 
     /**
@@ -78,7 +81,19 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 }
             }
 
+            this.buildMap();
             this.render();
+        }
+    }
+
+    private void buildMap() {
+        Tileable[][] tiles = this.getModel().getMap().getTiles();
+
+        for(int i = 0; i < tiles.length; i++) {
+            for(int j = 0; j < tiles[i].length; j++) {
+//                System.out.print(tiles[i][j]);
+            }
+//            System.out.println();
         }
     }
 

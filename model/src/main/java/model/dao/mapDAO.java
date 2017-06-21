@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Created by Utilisateur on 21/06/2017.
  */
-public class mapDAO extends AbstractDAO{
+public abstract class mapDAO extends AbstractDAO {
 
     public mapDAO() {}
 
@@ -14,18 +14,8 @@ public class mapDAO extends AbstractDAO{
     ResultSet rs = null;
     Statement st = null;
 
-    String SqlMap, SqlHeight, SqlWidth;
+    public static String readMap(int id) throws SQLException {
 
-    public void setMap(int id){
-
-        SqlMap = "CALL callMap("+id+")";
-        SqlWidth = "CALL getWidth("+id+")";
-        SqlHeight = "CALL getHeight("+id+")";
-    }
-
-    public String readMap(int id) throws SQLException {
-
-        setMap(id);
         final CallableStatement callStatementMapCode = prepareCall("{call callMap(?)}");
         String mapCode = "";
         callStatementMapCode.setInt(1, id);

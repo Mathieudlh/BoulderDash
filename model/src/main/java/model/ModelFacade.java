@@ -1,6 +1,7 @@
 package model;
 
 import model.dao.ExampleDAO;
+import model.dao.mapDAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,7 +24,11 @@ public class ModelFacade implements IModel {
     public ModelFacade() {
         super();
 
-        map = new Map("", 0, 0);
+        try {
+            map = new Map(this.readMap(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         entities = new ArrayList<>();
     }
 
@@ -52,6 +57,11 @@ public class ModelFacade implements IModel {
     @Override
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
+    }
+
+    @Override
+    public String readMap(int id) throws SQLException {
+        return mapDAO.readMap(id);
     }
 
     @Override
