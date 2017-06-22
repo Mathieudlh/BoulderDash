@@ -52,6 +52,19 @@ public class Player extends Entity implements Playable {
      */
     @Override
     public BufferedImage getImage() {
+        switch (direction) {
+            case UP:
+                return this.image.getSubimage(2 * 16, 5 * 16, 16, 16);
+
+            case DOWN:
+                return this.image.getSubimage(0 * 16, 5 * 16, 16, 16);
+
+            case LEFT:
+                return this.image.getSubimage(3 * 16, 5 * 16, 16, 16);
+
+            case RIGHT:
+                return this.image.getSubimage(1 * 16, 5 * 16, 16, 16);
+        }
         return this.image;
     }
 }
