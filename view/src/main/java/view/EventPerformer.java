@@ -12,14 +12,26 @@ import java.awt.event.KeyEvent;
  */
 public class EventPerformer {
 
+    /**
+     * Constructor
+     *
+     * @param orderPerformer
+     */
     public EventPerformer(OrderPerformerable orderPerformer) {
 
     }
 
+    /**
+     * @param keyCode
+     */
     public void eventPerform(KeyEvent keyCode) {
 
     }
 
+    /**
+     * @param keyCode
+     * @return
+     */
     private UserOrderable keyCodeToUserOrder(int keyCode) {
 
         UserOrderable userOrder = null;

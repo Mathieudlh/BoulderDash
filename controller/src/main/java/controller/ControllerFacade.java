@@ -28,6 +28,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
      */
     private final IModel model;
 
+    /**
+     * State of the game
+     */
     private boolean isGameOver;
 
     /**
@@ -73,6 +76,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
         return this.model;
     }
 
+    /**
+     * The gameloop
+     */
     private void gameLoop() {
         while (!isGameOver) {
 
@@ -93,6 +99,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
         }
     }
 
+    /**
+     * The method that build the map
+     */
     private void buildMap() {
         Tileable[][] tiles = this.getModel().getMap().getTiles();
         BufferedImage tmp = new BufferedImage(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16, BufferedImage.TYPE_INT_RGB);
@@ -114,6 +123,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.getModel().getMap().setImage(tmp);
     }
 
+    /**
+     * Method that render the game
+     */
     private void render() {
         this.getView().drawMap(this.getModel().getMap().getImage());
 
@@ -122,6 +134,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 this.getView().drawPlayer(this.getModel().getPlayer().getImage());
     }
 
+    /**
+     * @param userOrder
+     */
     @Override
     public void orderPerform(UserOrderable userOrder) {
         if (userOrder != null) {

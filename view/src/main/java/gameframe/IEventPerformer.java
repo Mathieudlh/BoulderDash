@@ -7,5 +7,8 @@ import java.awt.event.KeyEvent;
  */
 public interface IEventPerformer {
 
-    public void eventPerform (KeyEvent keyEvent);
+    /**
+     * @param keyEvent
+     */
+    void eventPerform(KeyEvent keyEvent);
 }

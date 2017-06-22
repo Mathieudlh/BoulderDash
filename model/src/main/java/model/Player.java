@@ -10,8 +10,14 @@ import java.io.IOException;
  */
 public class Player extends Entity implements Playable {
 
+    /**
+     * Image
+     */
     private BufferedImage image;
 
+    /**
+     * Constructor
+     */
     public Player() {
         try {
             image = ImageIO.read(new File("res/textures/player.png"));
@@ -20,16 +26,25 @@ public class Player extends Entity implements Playable {
         }
     }
 
+    /**
+     * @return boolean
+     */
     @Override
     public boolean isPlayer() {
         return true;
     }
 
+    /**
+     * Move
+     */
     @Override
     public void move() {
 
     }
 
+    /**
+     * @return BufferedImage
+     */
     @Override
     public BufferedImage getImage() {
         return this.image;

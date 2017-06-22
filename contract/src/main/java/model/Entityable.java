@@ -7,25 +7,58 @@ import java.awt.image.BufferedImage;
  */
 public interface Entityable {
 
+    /**
+     * @return int
+     */
     int getX();
 
+    /**
+     * @return int
+     */
     int getY();
 
+    /**
+     * @param x
+     */
     void setX(int x);
 
+    /**
+     * @param y
+     */
     void setY(int y);
 
+    /**
+     * @return boolean
+     */
     boolean getIsAlive();
 
+    /**
+     * @param isAlive
+     */
     void setIsAlive(boolean isAlive);
 
+    /**
+     * @return boolean
+     */
     boolean isPlayer();
 
+    /**
+     *
+     */
     void move();
 
+    /**
+     * @param direction
+     */
     void setDirection(Direction direction);
 
+    /**
+     * @return Direction
+     */
     Direction getDirection();
 
+    /**
+     * @return BufferedImage
+     */
     BufferedImage getImage();
 }

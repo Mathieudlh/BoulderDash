@@ -1,10 +1,6 @@
 package model.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
@@ -14,23 +10,35 @@ import java.sql.Statement;
  */
 final class BoulderDashBDDConnector {
 
-    /** The instance. */
+    /**
+     * The instance.
+     */
     private static BoulderDashBDDConnector instance;
 
-    /** The login. */
-    private static String                  user     = "Adrien";
+    /**
+     * The login.
+     */
+    private static String user = "Adrien";
 
-    /** The password. */
-    private static String                  password = "Gimli";
+    /**
+     * The password.
+     */
+    private static String password = "Gimli";
 
-    /** The url. */
-    private static String                  url      = "jdbc:mysql://92.222.66.195/boulderdash?useSSL=false&serverTimezone=UTC";
+    /**
+     * The url.
+     */
+    private static String url = "jdbc:mysql://92.222.66.195/boulderdash?useSSL=false&serverTimezone=UTC";
 
-    /** The connection. */
-    private Connection                     connection;
+    /**
+     * The connection.
+     */
+    private Connection connection;
 
-    /** The statement. */
-    private Statement                      statement;
+    /**
+     * The statement.
+     */
+    private Statement statement;
 
     /**
      * Instantiates a new boulder dash BDD connector.
@@ -54,8 +62,7 @@ final class BoulderDashBDDConnector {
     /**
      * Sets the instance.
      *
-     * @param instance
-     *            the new instance
+     * @param instance the new instance
      */
     private static void setInstance(final BoulderDashBDDConnector instance) {
         BoulderDashBDDConnector.instance = instance;
@@ -81,8 +88,7 @@ final class BoulderDashBDDConnector {
     /**
      * Execute query.
      *
-     * @param query
-     *            the query
+     * @param query the query
      * @return the result set
      */
     public ResultSet executeQuery(final String query) {
@@ -97,8 +103,7 @@ final class BoulderDashBDDConnector {
     /**
      * Prepare call.
      *
-     * @param query
-     *            the query
+     * @param query the query
      * @return the java.sql. callable statement
      */
     public java.sql.CallableStatement prepareCall(final String query) {
@@ -113,8 +118,7 @@ final class BoulderDashBDDConnector {
     /**
      * Execute update.
      *
-     * @param query
-     *            the query
+     * @param query the query
      * @return the int
      */
     public int executeUpdate(final String query) {
@@ -138,8 +142,7 @@ final class BoulderDashBDDConnector {
     /**
      * Sets the connection.
      *
-     * @param connection
-     *            the new connection
+     * @param connection the new connection
      */
     public void setConnection(final Connection connection) {
         this.connection = connection;
@@ -157,8 +160,7 @@ final class BoulderDashBDDConnector {
     /**
      * Sets the statement.
      *
-     * @param statement
-     *            the new statement
+     * @param statement the new statement
      */
     public void setStatement(final Statement statement) {
         this.statement = statement;

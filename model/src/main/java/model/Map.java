@@ -7,16 +7,42 @@ import java.awt.image.BufferedImage;
  */
 public class Map implements Mapable {
 
-    private int width = 0, height = 0;
+    /**
+     * width
+     */
+    private int width = 0;
+
+    /**
+     * height
+     */
+    private int height = 0;
+
+    /**
+     * Tiles
+     */
     private Tile[][] tiles;
+
+    /**
+     * Image
+     */
     private BufferedImage image;
 
+    /**
+     * Constructor
+     *
+     * @param map
+     */
     public Map(String map) {
         tiles = new Tile[height][width];
         image = new BufferedImage(width + 1, height + 1, BufferedImage.TYPE_INT_RGB);
         stringToTilesMap(map);
     }
 
+    /**
+     * String to tile map
+     *
+     * @param str
+     */
     private void stringToTilesMap(String str) {
         String[][] str_tmp = new String[1000][1000];
         String[] tmp = str.split("\n");
@@ -64,33 +90,60 @@ public class Map implements Mapable {
         }
     }
 
+    /**
+     * @param x
+     * @param y
+     * @return Tile
+     */
     public Tile getTiles(int x, int y) {
         return this.tiles[x][y];
     }
 
+    /**
+     * @param tile
+     * @param x
+     * @param y
+     */
     public void setTiles(Tile tile, int x, int y) {
         this.tiles[x][y] = tile;
     }
 
+    /**
+     * @return BufferedImage
+     */
     @Override
     public BufferedImage getImage() {
         return image;
     }
 
+    /**
+     * @param image
+     */
     @Override
     public void setImage(BufferedImage image) {
         this.image = image;
     }
 
+    /**
+     * @return Tileable[][]
+     */
     @Override
     public Tileable[][] getTiles() {
         return tiles;
     }
 
+    /**
+     * @return int
+     */
+    @Override
     public int getWidth() {
         return width;
     }
 
+    /**
+     * @return int
+     */
+    @Override
     public int getHeight() {
         return height;
     }

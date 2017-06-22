@@ -5,5 +5,8 @@ package model;
  */
 public interface Playable {
 
+    /**
+     * Move
+     */
     void move();
 }

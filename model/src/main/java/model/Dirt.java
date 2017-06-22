@@ -5,8 +5,14 @@ package model;
  */
 public class Dirt extends Tile implements Diggable{
 
+    /**
+     * Tile number
+     */
     public static final int TILE_NUMBER = 1;
 
+    /**
+     * @return int
+     */
     @Override
     public int getNumber() {
         return TILE_NUMBER;

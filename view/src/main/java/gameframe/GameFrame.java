@@ -10,8 +10,18 @@ import java.awt.image.BufferedImage;
  */
 public class GameFrame extends JFrame implements KeyListener {
 
+    /**
+     * GamePanel
+     */
     private GamePanel gamePanel;
 
+    /**
+     * Constructor
+     *
+     * @param title
+     * @param width
+     * @param height
+     */
     public GameFrame(String title/*, IEventPerformer Performer, IGraphicsBuilder graphicsBuilder, Observable observable*/, int width, int height) {
 
         this.setTitle(title);
@@ -33,22 +43,41 @@ public class GameFrame extends JFrame implements KeyListener {
         this.setVisible(true);
     }
 
+    /**
+     * @param keyEvent
+     */
     @Override
     public void keyTyped(KeyEvent keyEvent) {
 
     }
 
+    /**
+     * @param keyEvent
+     */
     @Override
     public void keyPressed(KeyEvent keyEvent) {
 
     }
 
+    /**
+     * @param keyEvent
+     */
     @Override
     public void keyReleased(KeyEvent keyEvent) {
 
     }
 
+    /**
+     * @param image
+     */
     public void setImageMap(BufferedImage image) {
         this.gamePanel.setImageMap(image);
+    }
+
+    /**
+     * @param imagePlayer
+     */
+    public void setImagePlayer(BufferedImage imagePlayer) {
+        this.gamePanel.setImagePlayer(imagePlayer);
     }
 }

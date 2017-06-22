@@ -5,8 +5,14 @@ package model;
  */
 public class Wall extends Tile{
 
+    /**
+     * Tile number
+     */
     public static final int TILE_NUMBER = 0;
 
+    /**
+     * @return int
+     */
     @Override
     public int getNumber() {
         return TILE_NUMBER;

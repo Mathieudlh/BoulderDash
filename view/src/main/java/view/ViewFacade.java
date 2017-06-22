@@ -14,6 +14,9 @@ import java.awt.image.BufferedImage;
  */
 public class ViewFacade implements IView {
 
+    /**
+     * GameFrame
+     */
     GameFrame gameframe;
 
     /**
@@ -32,16 +35,30 @@ public class ViewFacade implements IView {
         JOptionPane.showMessageDialog(null, message);
     }
 
+    /**
+     * Draw the map
+     * @param image
+     */
     @Override
     public void drawMap(BufferedImage image) {
         gameframe.setImageMap(image);
     }
 
+    /**
+     * Draw the player
+     * @param image
+     */
     @Override
     public void drawPlayer(BufferedImage image) {
-
+        gameframe.setImagePlayer(image);
     }
 
+    /**
+     * Create the window
+     *
+     * @param width
+     * @param height
+     */
     @Override
     public void createWindow(int width, int height) {
         gameframe = new GameFrame("Boulder Dash", width, height);

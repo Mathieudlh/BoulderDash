@@ -7,13 +7,22 @@ import java.sql.*;
  */
 public abstract class mapDAO extends AbstractDAO {
 
-    public mapDAO() {}
-
     BoulderDashBDDConnector BoulderDashBDD = BoulderDashBDDConnector.getInstance();
     Connection conn;
     ResultSet rs = null;
     Statement st = null;
 
+    /**
+     * Constructor
+     */
+    public mapDAO() {}
+
+    /**
+     * Read the map from DB
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public static String readMap(int id) throws SQLException {
 
         final CallableStatement callStatementMapCode = prepareCall("{call callMap(?)}");
@@ -28,6 +37,5 @@ public abstract class mapDAO extends AbstractDAO {
         }
         return mapCode;
     }
-
 
 }

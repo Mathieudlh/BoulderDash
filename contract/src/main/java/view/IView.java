@@ -17,9 +17,19 @@ public interface IView {
      */
     void displayMessage(String message);
 
+    /**
+     * @param image
+     */
     void drawMap(BufferedImage image);
 
+    /**
+     * @param image
+     */
     void drawPlayer(BufferedImage image);
 
+    /**
+     * @param width
+     * @param height
+     */
     void createWindow(int width, int height);
 }

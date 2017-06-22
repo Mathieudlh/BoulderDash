@@ -8,20 +8,33 @@ import java.awt.image.BufferedImage;
  */
 public class Enemy extends Entity{
 
+    /**
+     * @param x
+     * @param y
+     */
     public Enemy(int x, int y){
         super(x,y);
     }
 
+    /**
+     * @return BufferedImage
+     */
     @Override
     public BufferedImage getImage() {
         return null;
     }
 
+    /**
+     * @return boolean
+     */
     @Override
     public boolean isPlayer() {
         return false;
     }
 
+    /**
+     *
+     */
     @Override
     public void move() {
 

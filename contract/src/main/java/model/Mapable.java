@@ -7,13 +7,29 @@ import java.awt.image.BufferedImage;
  */
 public interface Mapable {
 
+    /**
+     * @return BufferedImage
+     */
     BufferedImage getImage();
+
+    /**
+     * @param image
+     */
     void setImage(BufferedImage image);
 
+    /**
+     * @return Tileable[][]
+     */
     Tileable[][] getTiles();
 
+    /**
+     * @return int
+     */
     int getWidth();
 
+    /**
+     * @return int
+     */
     int getHeight();
 
 }

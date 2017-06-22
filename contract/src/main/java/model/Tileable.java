@@ -5,6 +5,9 @@ package model;
  */
 public interface Tileable {
 
+    /**
+     * @return int
+     */
     int getNumber();
 
 }
