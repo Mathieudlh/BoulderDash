@@ -25,7 +25,7 @@ public interface IView {
     /**
      * @param image
      */
-    void drawPlayer(BufferedImage image);
+    void drawPlayer(BufferedImage image, int x, int y);
 
     /**
      * @param width

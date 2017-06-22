@@ -49,8 +49,8 @@ public class ViewFacade implements IView {
      * @param image
      */
     @Override
-    public void drawPlayer(BufferedImage image) {
-        gameframe.setImagePlayer(image);
+    public void drawPlayer(BufferedImage image, int x, int y) {
+        gameframe.setImagePlayer(image, x, y);
     }
 
     /**

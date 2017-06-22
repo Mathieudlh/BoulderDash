@@ -129,9 +129,13 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private void render() {
         this.getView().drawMap(this.getModel().getMap().getImage());
 
-        if (this.getModel().getPlayer() != null)
-            if (this.getModel().getPlayer().getImage() != null)
-                this.getView().drawPlayer(this.getModel().getPlayer().getImage());
+        if (this.getModel().getPlayer() != null) {
+            Entityable player = this.getModel().getPlayer();
+
+            if (player.getImage() != null) {
+                this.getView().drawPlayer(player.getImage().getSubimage(0, 0, 16, 16), player.getX(), player.getY());
+            }
+        }
     }
 
     /**

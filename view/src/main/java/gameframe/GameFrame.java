@@ -77,7 +77,7 @@ public class GameFrame extends JFrame implements KeyListener {
     /**
      * @param imagePlayer
      */
-    public void setImagePlayer(BufferedImage imagePlayer) {
-        this.gamePanel.setImagePlayer(imagePlayer);
+    public void setImagePlayer(BufferedImage imagePlayer, int x, int y) {
+        this.gamePanel.setImagePlayer(imagePlayer, x, y);
     }
 }
