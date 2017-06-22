@@ -6,7 +6,7 @@ import java.sql.*;
  * Created by Utilisateur on 21/06/2017.
  */
 public abstract class mapDAO extends AbstractDAO {
-    
+
     /**
      * Constructor
      */
