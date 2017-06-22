@@ -22,6 +22,7 @@ public abstract class mapDAO extends AbstractDAO {
      * @param id
      * @return
      * @throws SQLException
+     * Is used to read a DB field by executing a stocked procedure
      */
     public static String readMap(int id) throws SQLException {
 

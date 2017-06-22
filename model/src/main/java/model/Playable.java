@@ -7,6 +7,7 @@ public interface Playable {
 
     /**
      * Move
+     * verifies if class has move method
      */
     void move();
 }
