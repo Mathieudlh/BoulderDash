@@ -20,6 +20,9 @@ public class Player extends Entity implements Playable {
      */
     public Player() {
         this.setIsAlive(true);
+        this.setX(16);
+        this.setY(16);
+        this.setDirection(Direction.DOWN);
 
         try {
             image = ImageIO.read(new File("res/textures/player.png"));
