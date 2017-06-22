@@ -32,4 +32,9 @@ public interface IView {
      * @param height
      */
     void createWindow(int width, int height);
+
+    /**
+     * Close the window
+     */
+    void closeWindow();
 }

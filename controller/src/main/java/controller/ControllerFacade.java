@@ -57,7 +57,10 @@ public class ControllerFacade implements IController, OrderPerformerable {
      */
     public void start() throws SQLException {
         view.createWindow(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16);
-        gameLoop();
+
+        this.gameLoop();
+
+        this.exitGame();
     }
 
     /**
@@ -140,13 +143,18 @@ public class ControllerFacade implements IController, OrderPerformerable {
         }
     }
 
+    private void exitGame() {
+        this.getView().closeWindow();
+        System.exit(0);
+    }
+
     /**
      * @param userOrder
      */
     @Override
     public void orderPerform(UserOrderable userOrder) {
         if (userOrder != null) {
-            Direction direction;
+            Direction direction = null;
             Entityable player = this.getModel().getPlayer();
             int x = player.getX();
             int y = player.getY();
@@ -170,6 +178,10 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 case RIGHT:
                     direction = Direction.RIGHT;
                     player.setX(x + 16);
+                    break;
+
+                case EXIT:
+                    this.exitGame();
                     break;
 
                 default:

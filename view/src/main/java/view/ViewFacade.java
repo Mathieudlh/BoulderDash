@@ -72,4 +72,9 @@ public class ViewFacade implements IView {
         gameframe = new GameFrame("Boulder Dash", eventPerformer, width, height);
     }
 
+    @Override
+    public void closeWindow() {
+        gameframe.dispose();
+    }
+
 }
