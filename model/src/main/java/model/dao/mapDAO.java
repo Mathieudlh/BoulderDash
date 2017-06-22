@@ -6,12 +6,7 @@ import java.sql.*;
  * Created by Utilisateur on 21/06/2017.
  */
 public abstract class mapDAO extends AbstractDAO {
-
-    BoulderDashBDDConnector BoulderDashBDD = BoulderDashBDDConnector.getInstance();
-    Connection conn;
-    ResultSet rs = null;
-    Statement st = null;
-
+    
     /**
      * Constructor
      */
