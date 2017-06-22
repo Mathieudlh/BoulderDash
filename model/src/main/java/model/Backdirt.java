@@ -11,6 +11,7 @@ public class Backdirt extends Tile {
 
     /**
      * @return int
+     * returns the object's tile id
      */
     @Override
     public int getNumber() {

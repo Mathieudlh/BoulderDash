@@ -40,7 +40,9 @@ public class Map implements Mapable {
 
     /**
      * String to tile map
-     *
+     * reads the map string and separates each tile id
+     * places all ids in a 2 dimensional table  using encapsulated "for" for x and y axis
+     * this table represents the map and the tiles coordinates
      * @param str
      */
     private void stringToTilesMap(String str) {

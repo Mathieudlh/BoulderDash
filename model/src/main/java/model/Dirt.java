@@ -12,6 +12,7 @@ public class Dirt extends Tile implements Diggable{
 
     /**
      * @return int
+     * returns the object's tile id
      */
     @Override
     public int getNumber() {

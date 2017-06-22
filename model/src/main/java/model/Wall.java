@@ -12,6 +12,7 @@ public class Wall extends Tile{
 
     /**
      * @return int
+     * returns the object's tile id
      */
     @Override
     public int getNumber() {
