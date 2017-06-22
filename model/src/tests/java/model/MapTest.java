@@ -10,8 +10,10 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class MapTest {
+    private Map test;
     @Before
     public void setUp() throws Exception {
+        test = new Map("a,b,c,d");
     }
 
     @After
@@ -45,5 +47,6 @@ public class MapTest {
     @Test
     public void getHeight() throws Exception {
     }
+
 
 }
