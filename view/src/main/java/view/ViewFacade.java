@@ -77,4 +77,9 @@ public class ViewFacade implements IView {
         gameframe.dispose();
     }
 
+    @Override
+    public void drawScore(int score) {
+        gameframe.setScore(score);
+    }
+
 }

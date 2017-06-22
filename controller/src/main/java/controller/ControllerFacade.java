@@ -125,11 +125,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tileNum == 0 || tileNum == 3){
                         player.setY(player.getY() + 16);
                     }
-
-                    if(tileNum == 1 || tileNum == 4) {
-                        map.setTile(2, player.getX() / 16, player.getY() / 16);
-                        rebuildMap(2, player.getX(), player.getY());
-                    }
                 }
                 break;
 
@@ -137,11 +132,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 if(player.getY() < map.getHeight() * 16) {
                     if (tileNum == 0 || tileNum == 3){
                         player.setY(player.getY() - 16);
-                    }
-
-                    if(tileNum == 1 || tileNum == 4) {
-                        map.setTile(2, player.getX() / 16, player.getY() / 16);
-                        rebuildMap(2, player.getX(), player.getY());
                     }
                 }
                 break;
@@ -151,11 +141,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() + 16);
                     }
-
-                    if(tileNum == 1 || tileNum == 4) {
-                        map.setTile(2, player.getX() / 16, player.getY() / 16);
-                        rebuildMap(2, player.getX(), player.getY());
-                    }
                 }
                 break;
 
@@ -164,13 +149,17 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() - 16);
                     }
-
-                    if(tileNum == 1 || tileNum == 4) {
-                        map.setTile(2, player.getX() / 16, player.getY() / 16);
-                        rebuildMap(2, player.getX(), player.getY());
-                    }
                 }
                 break;
+        }
+
+        if(tileNum == 1 || tileNum == 4) {
+            map.setTile(2, player.getX() / 16, player.getY() / 16);
+            rebuildMap(2, player.getX(), player.getY());
+
+            if(tileNum == 4) {
+                map.setScore(map.getScore() + 1);
+            }
         }
     }
 
@@ -203,9 +192,8 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
         int xT = numTile % 12 * 16;
         int yT = numTile / 12 * 16;
-        BufferedImage tile = this.getModel().getTileset().getSubimage(xT, yT, 16, 16);
 
-        g.drawImage(tile, x, y, null);
+        g.drawImage(this.getModel().getTileset().getSubimage(xT, yT, 16, 16), x, y, null);
     }
 
     /**
@@ -218,9 +206,11 @@ public class ControllerFacade implements IController, OrderPerformerable {
             Entityable player = this.getModel().getPlayer();
 
             if (player.getImage() != null) {
-                this.getView().drawPlayer(player.getImage().getSubimage(0, 0, 16, 16), player.getX(), player.getY());
+                this.getView().drawPlayer(player.getImage(), player.getX(), player.getY());
             }
         }
+
+        this.getView().drawScore(this.getModel().getMap().getScore());
     }
 
     private void exitGame() {

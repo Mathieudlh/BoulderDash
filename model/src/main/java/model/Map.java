@@ -28,6 +28,11 @@ public class Map implements Mapable {
     private BufferedImage image;
 
     /**
+     * Score
+     */
+    private int score;
+
+    /**
      * Constructor
      *
      * @param map
@@ -35,6 +40,7 @@ public class Map implements Mapable {
     public Map(String map) {
         tiles = new Tile[height][width];
         image = new BufferedImage(width + 1, height + 1, BufferedImage.TYPE_INT_RGB);
+        score = 0;
         stringToTilesMap(map);
     }
 
@@ -149,5 +155,13 @@ public class Map implements Mapable {
                 tiles[y][x] = new Backdirt();
                 break;
         }
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

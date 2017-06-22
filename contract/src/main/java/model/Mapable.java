@@ -45,4 +45,14 @@ public interface Mapable {
      */
     int getHeight();
 
+    /**
+     * @return int
+     */
+    int getScore();
+
+    /**
+     * @param score
+     */
+    void setScore(int score);
+
 }

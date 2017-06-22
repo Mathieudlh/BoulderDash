@@ -37,4 +37,10 @@ public interface IView {
      * Close the window
      */
     void closeWindow();
+
+    /**
+     * Draw the score
+     * @param score
+     */
+    void drawScore(int score);
 }
