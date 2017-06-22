@@ -43,24 +43,29 @@ public class EventPerformer implements EventPerformerable {
         UserOrderable userOrder = null;
 
         switch (keyCode) {
-
             case KeyEvent.VK_UP:
             case KeyEvent.VK_Z:
                 userOrder = new UserOrder(Order.UP);
                 break;
+
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
                 userOrder = new UserOrder(Order.RIGHT);
                 break;
+
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
                 userOrder = new UserOrder(Order.DOWN);
                 break;
+
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_Q:
                 userOrder = new UserOrder(Order.LEFT);
                 break;
 
+            case KeyEvent.VK_ESCAPE:
+                userOrder  = new UserOrder(Order.EXIT);
+                break;
         }
 
         return userOrder;
