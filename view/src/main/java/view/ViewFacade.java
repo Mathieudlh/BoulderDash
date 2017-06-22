@@ -44,7 +44,7 @@ public class ViewFacade implements IView {
     }
 
     /**
-     * Draw the map
+     * Draw the map from its image
      * @param image
      */
     @Override
@@ -53,7 +53,7 @@ public class ViewFacade implements IView {
     }
 
     /**
-     * Draw the player
+     * Draw the player from his image
      * @param image
      */
     @Override

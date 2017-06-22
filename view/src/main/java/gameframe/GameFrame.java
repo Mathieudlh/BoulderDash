@@ -54,6 +54,7 @@ public class GameFrame extends JFrame implements KeyListener {
     }
 
     /**
+     * get the key pressed by the user in order
      * @param keyEvent
      */
     @Override
@@ -70,6 +71,7 @@ public class GameFrame extends JFrame implements KeyListener {
     }
 
     /**
+     * set the correct image of the map
      * @param image
      */
     public void setImageMap(BufferedImage image) {

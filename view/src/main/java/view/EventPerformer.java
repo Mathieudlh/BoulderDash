@@ -17,7 +17,6 @@ public class EventPerformer implements EventPerformerable {
 
     /**
      * Constructor
-     *
      * @param orderPerformer
      */
     public EventPerformer(OrderPerformerable orderPerformer) {
@@ -36,7 +35,7 @@ public class EventPerformer implements EventPerformerable {
 
     /**
      * @param keyCode
-     * @return
+     * @return the user order (the keyboard input)
      */
     private UserOrderable keyCodeToUserOrder(int keyCode) {
 
