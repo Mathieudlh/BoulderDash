@@ -19,6 +19,8 @@ public class Player extends Entity implements Playable {
      * Constructor
      */
     public Player() {
+        this.setIsAlive(true);
+
         try {
             image = ImageIO.read(new File("res/textures/player.png"));
         } catch (IOException e) {

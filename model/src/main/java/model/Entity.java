@@ -20,12 +20,12 @@ public abstract class Entity implements Entityable {
     /**
      * isAlive
      */
-    private boolean isAlive;
+    protected boolean isAlive;
 
     /**
      * Direction
      */
-    private Direction direction;
+    protected Direction direction;
 
     /**
      *
