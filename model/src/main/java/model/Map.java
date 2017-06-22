@@ -97,8 +97,9 @@ public class Map implements Mapable {
      * @param y
      * @return Tile
      */
-    public Tile getTiles(int x, int y) {
-        return this.tiles[x][y];
+    @Override
+    public Tile getTile(int x, int y) {
+        return this.tiles[y][x];
     }
 
     /**
@@ -106,8 +107,9 @@ public class Map implements Mapable {
      * @param x
      * @param y
      */
-    public void setTiles(Tile tile, int x, int y) {
-        this.tiles[x][y] = tile;
+    @Override
+    public void setTile(Tileable tile, int x, int y) {
+        this.tiles[y][x] = (Tile) tile;
     }
 
     /**

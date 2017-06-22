@@ -8,6 +8,19 @@ import java.awt.image.BufferedImage;
 public interface Mapable {
 
     /**
+     * @param x
+     * @param y
+     * @return
+     */
+    Tileable getTile(int x, int y);
+
+    /**
+     * @param x
+     * @param y
+     */
+    void setTile(Tileable tile, int x, int y);
+
+    /**
      * @return BufferedImage
      */
     BufferedImage getImage();
