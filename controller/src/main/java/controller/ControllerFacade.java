@@ -41,7 +41,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.view = view;
         this.model = model;
         this.isGameOver = false;
-        view.createWindow(1280, 720);
 
         this.buildMap();
     }
@@ -52,6 +51,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
      * @throws SQLException the SQL exception
      */
     public void start() throws SQLException {
+        view.createWindow(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16);
         gameLoop();
     }
 
@@ -78,9 +78,14 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
             if (this.getModel().getEntities() != null) {
                 for (Entityable entity : this.getModel().getEntities()) {
-                    if (entity.isPlayer())
+                    if (entity.isPlayer()) {
                         entity.move();
+                    }
                 }
+            }
+
+            if(!this.getModel().getPlayer().getIsAlive()) {
+                isGameOver = !isGameOver;
             }
 
 //            this.buildMap();
@@ -101,7 +106,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
                 BufferedImage tile = this.getModel().getTileset().getSubimage(x, y, 16, 16);
 
-                Graphics2D g = tmp.createGraphics();
+                Graphics g = tmp.getGraphics();
                 g.drawImage(tile, j * 16, i * 16, null);
             }
         }
