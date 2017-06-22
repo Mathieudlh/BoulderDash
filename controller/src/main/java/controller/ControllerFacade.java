@@ -102,7 +102,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 BufferedImage tile = this.getModel().getTileset().getSubimage(x, y, 16, 16);
 
                 Graphics2D g = tmp.createGraphics();
-                g.drawImage(tile, i * 16, j * 16, null);
+                g.drawImage(tile, j * 16, i * 16, null);
             }
         }
 

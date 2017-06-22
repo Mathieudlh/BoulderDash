@@ -18,7 +18,7 @@ public class Map implements Mapable {
     }
 
     private void stringToTilesMap(String str) {
-        String[][] str_tmp = new String[500][500];
+        String[][] str_tmp = new String[1000][1000];
         String[] tmp = str.split("\n");
         height = tmp.length;
 
