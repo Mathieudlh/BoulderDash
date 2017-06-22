@@ -55,7 +55,7 @@ DELIMITER ;
 
 CREATE TABLE IF NOT EXISTS `MAP` (
 `map_ID` int(11) NOT NULL,
-  `map_structure` varchar(2200) DEFAULT NULL,
+  `map_structure` varchar(9999) DEFAULT NULL,
   `width` int(11) DEFAULT NULL,
   `height` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
