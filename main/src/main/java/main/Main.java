@@ -21,7 +21,8 @@ public abstract class Main {
      * @param args the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+        final ControllerFacade controller = new ControllerFacade(new ModelFacade());
+        controller.setView(new ViewFacade(controller));
 
         controller.getModel().addEntity(new Player());
 

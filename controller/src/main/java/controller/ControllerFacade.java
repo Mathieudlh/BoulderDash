@@ -21,7 +21,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
     /**
      * The view.
      */
-    private final IView view;
+    private IView view;
 
     /**
      * The model.
@@ -36,16 +36,18 @@ public class ControllerFacade implements IController, OrderPerformerable {
     /**
      * Instantiates a new controller facade.
      *
-     * @param view  the view
      * @param model the model
      */
-    public ControllerFacade(final IView view, final IModel model) {
+    public ControllerFacade(final IModel model) {
         super();
-        this.view = view;
         this.model = model;
         this.isGameOver = false;
 
         this.buildMap();
+    }
+
+    public void setView(final IView view) {
+        this.view = view;
     }
 
     /**
@@ -152,22 +154,22 @@ public class ControllerFacade implements IController, OrderPerformerable {
             switch (userOrder.getOrder()) {
                 case UP:
                     direction = Direction.UP;
-                    player.setY(y--);
+                    player.setY(y - 16);
                     break;
 
                 case DOWN:
                     direction = Direction.DOWN;
-                    player.setY(y++);
+                    player.setY(y + 16);
                     break;
 
                 case LEFT:
                     direction = Direction.LEFT;
-                    player.setX(x--);
+                    player.setX(x - 16);
                     break;
 
                 case RIGHT:
                     direction = Direction.RIGHT;
-                    player.setX(x++);
+                    player.setX(x + 16);
                     break;
 
                 default:

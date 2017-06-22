@@ -14,6 +14,7 @@ public class GameFrame extends JFrame implements KeyListener {
      * GamePanel
      */
     private GamePanel gamePanel;
+    private EventPerformerable eventPerformer;
 
     /**
      * Constructor
@@ -22,17 +23,18 @@ public class GameFrame extends JFrame implements KeyListener {
      * @param width
      * @param height
      */
-    public GameFrame(String title/*, IEventPerformer Performer, IGraphicsBuilder graphicsBuilder, Observable observable*/, int width, int height) {
+    public GameFrame(String title, EventPerformerable eventPerformer/*, IGraphicsBuilder graphicsBuilder, Observable observable*/, int width, int height) {
 
         this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.addKeyListener(this);
 
-
         this.setSize(width, height);
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
+
+        this.eventPerformer = eventPerformer;
 
         gamePanel = new GamePanel(/*graphicsBuilder*/);
         gamePanel.setDoubleBuffered(true);
@@ -56,7 +58,7 @@ public class GameFrame extends JFrame implements KeyListener {
      */
     @Override
     public void keyPressed(KeyEvent keyEvent) {
-
+        this.eventPerformer.eventPerform(keyEvent);
     }
 
     /**

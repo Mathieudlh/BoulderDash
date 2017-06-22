@@ -1,5 +1,6 @@
 package view;
 
+import controller.OrderPerformerable;
 import gameframe.GameFrame;
 
 import javax.swing.*;
@@ -15,6 +16,11 @@ import java.awt.image.BufferedImage;
 public class ViewFacade implements IView {
 
     /**
+     * Event performer
+     */
+    private EventPerformer eventPerformer;
+
+    /**
      * GameFrame
      */
     GameFrame gameframe;
@@ -22,8 +28,10 @@ public class ViewFacade implements IView {
     /**
      * Instantiates a new view facade.
      */
-    public ViewFacade() {
+    public ViewFacade(OrderPerformerable orderPerformer) {
         super();
+
+        this.eventPerformer = new EventPerformer(orderPerformer);
     }
 
     /*
@@ -61,7 +69,7 @@ public class ViewFacade implements IView {
      */
     @Override
     public void createWindow(int width, int height) {
-        gameframe = new GameFrame("Boulder Dash", width, height);
+        gameframe = new GameFrame("Boulder Dash", eventPerformer, width, height);
     }
 
 }
