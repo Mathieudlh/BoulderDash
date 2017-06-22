@@ -117,32 +117,38 @@ public class ControllerFacade implements IController, OrderPerformerable {
         if (player.getY() >= map.getHeight() * 16)
             player.setY(map.getHeight() * 16 - 16);
 
+        int tileNum = map.getTile(player.getX() / 16, player.getY() / 16).getNumber();
+
         switch (player.getDirection()) {
             case UP:
                 if(player.getY() >= 0) {
-                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                    if (tileNum == 0 || tileNum == 3){
                         player.setY(player.getY() + 16);
+                    }
                 }
                 break;
 
             case DOWN:
                 if(player.getY() < map.getHeight() * 16) {
-                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                    if (tileNum == 0 || tileNum == 3){
                         player.setY(player.getY() - 16);
+                    }
                 }
                 break;
 
             case LEFT:
                 if(player.getX() >= 0) {
-                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                    if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() + 16);
+                    }
                 }
                 break;
 
             case RIGHT:
                 if(player.getX() < map.getWidth() * 16) {
-                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                    if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() - 16);
+                    }
                 }
                 break;
         }
