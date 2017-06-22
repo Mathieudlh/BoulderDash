@@ -34,7 +34,7 @@ public class ModelFacade implements IModel {
         super();
 
         try {
-            map = new Map(this.readMap(4));
+            map = new Map(this.readMap(1));
         } catch (SQLException e) {
             e.printStackTrace();
         }

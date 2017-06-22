@@ -1,9 +1,6 @@
 package controller;
 
-import model.Direction;
-import model.Entityable;
-import model.IModel;
-import model.Tileable;
+import model.*;
 import view.IView;
 
 import java.awt.*;
@@ -89,18 +86,65 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
             if (this.getModel().getEntities() != null) {
                 for (Entityable entity : this.getModel().getEntities()) {
-                    if (entity.isPlayer()) {
-                        entity.move();
-                    }
+                    entity.move();
                 }
             }
 
-            if(!this.getModel().getPlayer().getIsAlive()) {
+            if (!this.getModel().getPlayer().getIsAlive()) {
                 isGameOver = !isGameOver;
             }
 
+            manageCollision();
+
 //            this.buildMap();
             this.render();
+        }
+    }
+
+    /**
+     * Manage the collision
+     */
+    private void manageCollision() {
+        Entityable player = this.getModel().getPlayer();
+        Mapable map = this.getModel().getMap();
+
+        if (player.getX() <= 0)
+            player.setX(0);
+        if (player.getX() >= map.getWidth() * 16)
+            player.setX(map.getWidth() * 16 - 16);
+        if (player.getY() <= 0)
+            player.setY(0);
+        if (player.getY() >= map.getHeight() * 16)
+            player.setY(map.getHeight() * 16 - 16);
+
+        switch (player.getDirection()) {
+            case UP:
+                if(player.getY() >= 0) {
+                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                        player.setY(player.getY() + 16);
+                }
+                break;
+
+            case DOWN:
+                if(player.getY() < map.getHeight() * 16) {
+                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                        player.setY(player.getY() - 16);
+                }
+                break;
+
+            case LEFT:
+                if(player.getX() >= 0) {
+                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                        player.setX(player.getX() + 16);
+                }
+                break;
+
+            case RIGHT:
+                if(player.getX() < map.getWidth() * 16) {
+                    if (map.getTile(player.getX() / 16, player.getY() / 16).getNumber() == 0)
+                        player.setX(player.getX() - 16);
+                }
+                break;
         }
     }
 
@@ -111,8 +155,8 @@ public class ControllerFacade implements IController, OrderPerformerable {
         Tileable[][] tiles = this.getModel().getMap().getTiles();
         BufferedImage tmp = new BufferedImage(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16, BufferedImage.TYPE_INT_RGB);
 
-        for (int i = 0; i < tiles.length; i++) {
-            for (int j = 0; j < tiles[i].length; j++) {
+        for (int i = 0; i < this.getModel().getMap().getHeight(); i++) {
+            for (int j = 0; j < this.getModel().getMap().getWidth(); j++) {
                 int num = tiles[i][j].getNumber();
 
                 int x = num % 12 * 16;
