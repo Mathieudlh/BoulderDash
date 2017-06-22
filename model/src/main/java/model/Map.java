@@ -63,31 +63,7 @@ public class Map implements Mapable {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                switch ((int) str_tmp[i][j].charAt(0) - 48) {
-                    case Diamond.TILE_NUMBER:
-                        tiles[i][j] = new Diamond();
-                        break;
-
-                    case Dirt.TILE_NUMBER:
-                        tiles[i][j] = new Dirt();
-                        break;
-
-                    case Rock.TILE_NUMBER:
-                        tiles[i][j] = new Rock();
-                        break;
-
-                    case Wall.TILE_NUMBER:
-                        tiles[i][j] = new Wall();
-                        break;
-
-                    case Exit.TILE_NUMBER:
-                        tiles[i][j] = new Exit();
-                        break;
-
-                    case Backdirt.TILE_NUMBER:
-                        tiles[i][j] = new Backdirt();
-                        break;
-                }
+                convertNumToTile((int) str_tmp[i][j].charAt(0) - 48, j, i);
             }
         }
     }
@@ -102,14 +78,9 @@ public class Map implements Mapable {
         return this.tiles[y][x];
     }
 
-    /**
-     * @param tile
-     * @param x
-     * @param y
-     */
     @Override
-    public void setTile(Tileable tile, int x, int y) {
-        this.tiles[y][x] = (Tile) tile;
+    public void setTile(int tileNum, int x, int y) {
+        convertNumToTile(tileNum, x, y);
     }
 
     /**
@@ -150,5 +121,33 @@ public class Map implements Mapable {
     @Override
     public int getHeight() {
         return height;
+    }
+
+    private void convertNumToTile(int tileNum, int x, int y) {
+        switch (tileNum) {
+            case Diamond.TILE_NUMBER:
+                tiles[y][x] = new Diamond();
+                break;
+
+            case Dirt.TILE_NUMBER:
+                tiles[y][x] = new Dirt();
+                break;
+
+            case Rock.TILE_NUMBER:
+                tiles[y][x] = new Rock();
+                break;
+
+            case Wall.TILE_NUMBER:
+                tiles[y][x] = new Wall();
+                break;
+
+            case Exit.TILE_NUMBER:
+                tiles[y][x] = new Exit();
+                break;
+
+            case Backdirt.TILE_NUMBER:
+                tiles[y][x] = new Backdirt();
+                break;
+        }
     }
 }
