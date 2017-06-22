@@ -22,6 +22,7 @@ public class GameFrame extends JFrame implements KeyListener {
 
         this.setSize(width, height);
         this.setLocationRelativeTo(null);
+        this.setUndecorated(true);
 
         gamePanel = new GamePanel(/*graphicsBuilder*/);
         gamePanel.setDoubleBuffered(true);
