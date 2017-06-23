@@ -241,7 +241,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
             }
         }
 
-        this.getView().drawScore(this.getModel().getMap().getScore());
+        this.getView().drawScore(this.getModel().getMap().getScore() + "/" + this.getModel().getMap().getNbDiamond());
     }
 
     /**

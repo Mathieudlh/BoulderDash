@@ -85,7 +85,7 @@ public class GameFrame extends JFrame implements KeyListener {
         this.gamePanel.setImagePlayer(imagePlayer, x, y);
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.gamePanel.setScore(score);
     }
 }

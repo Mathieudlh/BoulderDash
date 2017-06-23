@@ -42,5 +42,5 @@ public interface IView {
      * Draw the score
      * @param score
      */
-    void drawScore(int score);
+    void drawScore(String score);
 }

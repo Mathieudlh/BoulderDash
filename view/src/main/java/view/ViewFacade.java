@@ -78,7 +78,7 @@ public class ViewFacade implements IView {
     }
 
     @Override
-    public void drawScore(int score) {
+    public void drawScore(String score) {
         gameframe.setScore(score);
     }
 
