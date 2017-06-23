@@ -187,7 +187,13 @@ public class ControllerFacade implements IController, OrderPerformerable {
             for (int x = 0; x < map.getWidth(); x++) {
                 Tileable tile = map.getTile(x, y);
                 if (tile.isFallable() && map.getTile(x, y + 1).getNumber() == 2) {
-                    if (map.getTile(x, y + 1).getNumber() == 2) {
+                    if (this.getModel().getPlayer().getY() / 16 == y + 1) {
+                        if (tile.getNumber() == 3) {
+                            toggleGameOver();
+                        }
+                    }
+
+                    if(tile.getNumber() != 4 || this.getModel().getPlayer().getY() / 16 != y) {
                         map.setTile(2, x, y);
                         map.setTile(tile.getNumber(), x, y + 1);
                         rebuildMap(2, x * 16, y * 16); //TODO move rebuild to Map
