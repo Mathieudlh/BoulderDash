@@ -10,8 +10,10 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class DirtTest {
+    private Dirt test;
     @Before
     public void setUp() throws Exception {
+        test = new Dirt();
     }
 
     @After
@@ -20,6 +22,9 @@ public class DirtTest {
 
     @Test
     public void getNumber() throws Exception {
+        final int expected = 1;
+
+        assertEquals(expected,test.getNumber());
     }
 
 }
