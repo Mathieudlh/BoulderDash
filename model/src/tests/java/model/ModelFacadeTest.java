@@ -36,7 +36,6 @@ public class ModelFacadeTest {
 
     @Test
     public void getMap() throws Exception {
-        final
     }
 
     @Test
