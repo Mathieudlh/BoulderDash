@@ -32,6 +32,8 @@ public class Map implements Mapable {
      */
     private int score;
 
+    private int nbDiamond;
+
     /**
      * Constructor
      *
@@ -41,6 +43,7 @@ public class Map implements Mapable {
         tiles = new Tile[height][width];
         image = new BufferedImage(width + 1, height + 1, BufferedImage.TYPE_INT_RGB);
         score = 0;
+        nbDiamond = 0;
         stringToTilesMap(map);
     }
 
@@ -69,7 +72,11 @@ public class Map implements Mapable {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                convertNumToTile((int) str_tmp[i][j].charAt(0) - 48, j, i);
+                int tileNum = (int) str_tmp[i][j].charAt(0) - 48;
+
+                convertNumToTile(tileNum, j, i);
+                if(tileNum == Diamond.TILE_NUMBER)
+                    nbDiamond++;
             }
         }
     }
@@ -129,6 +136,11 @@ public class Map implements Mapable {
         return height;
     }
 
+    /**
+     * @param tileNum
+     * @param x
+     * @param y
+     */
     private void convertNumToTile(int tileNum, int x, int y) {
         switch (tileNum) {
             case Diamond.TILE_NUMBER:
@@ -157,11 +169,27 @@ public class Map implements Mapable {
         }
     }
 
+    /**
+     * @return
+     */
+    @Override
     public int getScore() {
         return score;
     }
 
+    /**
+     * @param score
+     */
+    @Override
     public void setScore(int score) {
         this.score = score;
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public int getNbDiamond() {
+        return nbDiamond;
     }
 }

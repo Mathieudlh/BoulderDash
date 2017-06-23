@@ -55,4 +55,9 @@ public interface Mapable {
      */
     void setScore(int score);
 
+    /**
+     * @return int Number of diamond
+     */
+    int getNbDiamond();
+
 }
