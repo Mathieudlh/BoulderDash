@@ -1,6 +1,9 @@
 package model.dao;
 
+import model.Enemy;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by Utilisateur on 21/06/2017.
@@ -34,4 +37,11 @@ public abstract class mapDAO extends AbstractDAO {
         return mapCode;
     }
 
+    private static ResultSet getPos(int id) throws SQLException {
+        final CallableStatement callStatementGetPos = prepareCall("{call getPos(?)}");
+        callStatementGetPos.setInt(1, id);
+        final ResultSet result = callStatementGetPos.getResultSet();
+
+        return result;
+    }
 }
