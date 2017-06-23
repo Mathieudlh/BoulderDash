@@ -10,32 +10,16 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class GameFrameTest {
+
+    private GameFrame test;
+
     @Before
     public void setUp() throws Exception {
-    }
 
-    @After
-    public void tearDown() throws Exception {
     }
 
     @Test
-    public void keyTyped() throws Exception {
-    }
-
-    @Test
-    public void keyPressed() throws Exception {
-    }
-
-    @Test
-    public void keyReleased() throws Exception {
-    }
-
-    @Test
-    public void setImageMap() throws Exception {
-    }
-
-    @Test
-    public void setImagePlayer() throws Exception {
+    public void setScore() throws Exception {
     }
 
 }
