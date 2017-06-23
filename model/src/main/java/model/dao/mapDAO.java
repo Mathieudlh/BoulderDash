@@ -44,4 +44,20 @@ public abstract class mapDAO extends AbstractDAO {
 
         return result;
     }
+
+    public ArrayList getEnemyPos(int id) throws SQLException {
+
+        ResultSet result;
+        ArrayList enemies = null;
+        int x, y;
+        result = mapDAO.getPos(id);
+        while (result.next()) {
+            x = result.getInt("pos_x");
+            y = result.getInt("pos_y");
+
+            enemies.add(new Enemy(x,y));
+
+        }
+        return enemies;
+    }
 }
