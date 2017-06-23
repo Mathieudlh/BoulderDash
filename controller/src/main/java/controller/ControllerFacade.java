@@ -53,7 +53,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
      * @throws SQLException the SQL exception
      */
     public void start() throws SQLException {
-        view.createWindow(this.getModel().getMap().getWidth() * 16, this.getModel().getMap().getHeight() * 16);
+        this.getView().createWindow((int) (this.getModel().getMap().getWidth() * 16 * 1.5), (int) (this.getModel().getMap().getHeight() * 16 * 1.5));
 
         this.gameLoop();
 
@@ -190,6 +190,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tile.getNumber() == 3) {
                         if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
                                 this.getModel().getPlayer().getX() / 16 == x) {
+//                            toggleGameOver();
                             return;
                         }
                     }
