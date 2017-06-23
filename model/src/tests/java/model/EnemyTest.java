@@ -10,8 +10,10 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class EnemyTest {
+    Enemy test;
     @Before
     public void setUp() throws Exception {
+        test = new Enemy(0,0);
     }
 
     @After
@@ -24,6 +26,8 @@ public class EnemyTest {
 
     @Test
     public void isPlayer() throws Exception {
+        final boolean expected = false;
+        assertEquals(expected,test.isPlayer());
     }
 
     @Test
