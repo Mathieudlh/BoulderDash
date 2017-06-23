@@ -10,8 +10,12 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class ModelFacadeTest {
+
+    private Map test;
+
     @Before
     public void setUp() throws Exception {
+        test = new Map("1,0,1,0,1,0,1");
     }
 
     @After
@@ -32,6 +36,7 @@ public class ModelFacadeTest {
 
     @Test
     public void getMap() throws Exception {
+        final
     }
 
     @Test
