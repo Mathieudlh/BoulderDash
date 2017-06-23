@@ -10,8 +10,12 @@ import static org.junit.Assert.*;
  * Created by Utilisateur on 22/06/2017.
  */
 public class PlayerTest {
+
+    private Player test;
+
     @Before
     public void setUp() throws Exception {
+        test = new Player();
     }
 
     @After
@@ -20,6 +24,8 @@ public class PlayerTest {
 
     @Test
     public void isPlayer() throws Exception {
+        final boolean expected = true;
+        assertEquals(expected,test.isPlayer());
     }
 
     @Test
