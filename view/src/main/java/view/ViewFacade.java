@@ -2,9 +2,11 @@ package view;
 
 import controller.OrderPerformerable;
 import gameframe.GameFrame;
+import model.Entityable;
 
 import javax.swing.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 /**
@@ -52,13 +54,9 @@ public class ViewFacade implements IView {
         gameframe.setImageMap(image);
     }
 
-    /**
-     * Draw the player from his image
-     * @param image
-     */
     @Override
-    public void drawPlayer(BufferedImage image, int x, int y) {
-        gameframe.setImagePlayer(image, x, y);
+    public void drawEntities(ArrayList<Entityable> entities) {
+        gameframe.setEntities(entities);
     }
 
     /**

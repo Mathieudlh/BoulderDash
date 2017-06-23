@@ -1,12 +1,17 @@
 package model;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Utilisateur on 16/06/2017.
  */
 public class Enemy extends Entity{
+
+    private BufferedImage image;
 
     /**
      * @param x
@@ -14,6 +19,12 @@ public class Enemy extends Entity{
      */
     public Enemy(int x, int y){
         super(x,y);
+
+        try {
+            image = ImageIO.read(new File("res/textures/tileset.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -21,7 +32,7 @@ public class Enemy extends Entity{
      */
     @Override
     public BufferedImage getImage() {
-        return null;
+        return image.getSubimage(9 * 16, 0, 16, 16);
     }
 
     /**

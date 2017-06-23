@@ -1,6 +1,7 @@
 package main;
 
 import controller.ControllerFacade;
+import model.Enemy;
 import model.ModelFacade;
 import model.Player;
 import view.ViewFacade;
@@ -25,6 +26,8 @@ public abstract class Main {
         controller.setView(new ViewFacade(controller));
 
         controller.getModel().addEntity(new Player());
+        controller.getModel().addEntity(new Enemy(16, 16));
+        controller.getModel().addEntity(new Enemy(48, 48));
 
         try {
             controller.start();

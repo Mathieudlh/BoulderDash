@@ -1,9 +1,12 @@
 package gameframe;
 
+import model.Entityable;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * Created by mathi on 20/06/2017.
@@ -79,12 +82,15 @@ public class GameFrame extends JFrame implements KeyListener {
     }
 
     /**
-     * @param imagePlayer
+     * @param entities
      */
-    public void setImagePlayer(BufferedImage imagePlayer, int x, int y) {
-        this.gamePanel.setImagePlayer(imagePlayer, x, y);
+    public void setEntities(ArrayList<Entityable> entities) {
+        this.gamePanel.setEntities(entities);
     }
 
+    /**
+     * @param score
+     */
     public void setScore(String score) {
         this.gamePanel.setScore(score);
     }

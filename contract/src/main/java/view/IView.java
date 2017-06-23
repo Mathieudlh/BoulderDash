@@ -1,6 +1,9 @@
 package view;
 
+import model.Entityable;
+
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * <h1>The Interface IView.</h1>
@@ -23,9 +26,9 @@ public interface IView {
     void drawMap(BufferedImage image);
 
     /**
-     * @param image
+     * @param entities
      */
-    void drawPlayer(BufferedImage image, int x, int y);
+    void drawEntities(ArrayList<Entityable> entities);
 
     /**
      * @param width
