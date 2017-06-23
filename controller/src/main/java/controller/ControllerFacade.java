@@ -57,6 +57,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
         this.gameLoop();
 
+        //TODO game over
+        System.out.println("Game over !");
+
         this.exitGame();
     }
 
@@ -83,7 +86,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
      */
     private void gameLoop() {
         while (!isGameOver) {
-
             if (this.getModel().getEntities() != null) {
                 for (Entityable entity : this.getModel().getEntities()) {
                     entity.move();
@@ -91,14 +93,21 @@ public class ControllerFacade implements IController, OrderPerformerable {
             }
 
             if (!this.getModel().getPlayer().getIsAlive()) {
-                isGameOver = !isGameOver;
+                toggleGameOver();
             }
 
+            manageTileMoveable();
             manageCollision();
 
-//            this.buildMap();
             this.render();
         }
+    }
+
+    /**
+     * Toggle attribute isGameOver
+     */
+    private void toggleGameOver() {
+        isGameOver = !isGameOver;
     }
 
     /**
@@ -121,23 +130,23 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
         switch (player.getDirection()) {
             case UP:
-                if(player.getY() >= 0) {
-                    if (tileNum == 0 || tileNum == 3){
+                if (player.getY() >= 0) {
+                    if (tileNum == 0 || tileNum == 3) {
                         player.setY(player.getY() + 16);
                     }
                 }
                 break;
 
             case DOWN:
-                if(player.getY() < map.getHeight() * 16) {
-                    if (tileNum == 0 || tileNum == 3){
+                if (player.getY() < map.getHeight() * 16) {
+                    if (tileNum == 0 || tileNum == 3) {
                         player.setY(player.getY() - 16);
                     }
                 }
                 break;
 
             case LEFT:
-                if(player.getX() >= 0) {
+                if (player.getX() >= 0) {
                     if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() + 16);
                     }
@@ -145,7 +154,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 break;
 
             case RIGHT:
-                if(player.getX() < map.getWidth() * 16) {
+                if (player.getX() < map.getWidth() * 16) {
                     if (tileNum == 0 || tileNum == 3) {
                         player.setX(player.getX() - 16);
                     }
@@ -153,12 +162,38 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 break;
         }
 
-        if(tileNum == 1 || tileNum == 4) {
+        if (tileNum == 1 || tileNum == 4) {
             map.setTile(2, player.getX() / 16, player.getY() / 16);
             rebuildMap(2, player.getX(), player.getY());
 
-            if(tileNum == 4) {
+            if (tileNum == 4) {
                 map.setScore(map.getScore() + 1);
+            }
+        }
+
+        if (tileNum == 6) {
+            if (map.getScore() == this.getModel().getMap().getNbDiamond())
+                toggleGameOver();
+        }
+    }
+
+    /**
+     * Manage tiles that is moveable
+     */
+    private void manageTileMoveable() {
+        Mapable map = this.getModel().getMap();
+
+        for (int y = 0; y < map.getHeight(); y++) {
+            for (int x = 0; x < map.getWidth(); x++) {
+                Tileable tile = map.getTile(x, y);
+                if (tile.isFallable() && map.getTile(x, y + 1).getNumber() == 2) {
+                    if (map.getTile(x, y + 1).getNumber() == 2) {
+                        map.setTile(2, x, y);
+                        map.setTile(tile.getNumber(), x, y + 1);
+                        rebuildMap(2, x * 16, y * 16); //TODO move rebuild to Map
+                        rebuildMap(tile.getNumber(), x * 16, (y + 1) * 16);
+                    }
+                }
             }
         }
     }
