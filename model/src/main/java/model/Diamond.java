@@ -18,4 +18,9 @@ public class Diamond extends Tile implements Fallable{
     public int getNumber() {
         return TILE_NUMBER;
     }
+
+    @Override
+    public boolean isFallable() {
+        return true;
+    }
 }

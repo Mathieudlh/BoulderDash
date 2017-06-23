@@ -18,4 +18,9 @@ public class Dirt extends Tile implements Diggable{
     public int getNumber() {
         return TILE_NUMBER;
     }
+
+    @Override
+    public boolean isFallable() {
+        return false;
+    }
 }

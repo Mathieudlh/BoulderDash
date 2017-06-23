@@ -10,4 +10,6 @@ public interface Tileable {
      */
     int getNumber();
 
+    boolean isFallable();
+
 }

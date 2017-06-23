@@ -17,4 +17,9 @@ public class Backdirt extends Tile {
     public int getNumber() {
         return TILE_NUMBER;
     }
+
+    @Override
+    public boolean isFallable() {
+        return false;
+    }
 }
