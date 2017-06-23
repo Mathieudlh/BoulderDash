@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -92,8 +93,23 @@ public class Map implements Mapable {
     }
 
     @Override
-    public void setTile(int tileNum, int x, int y) {
+    public void setTile(int tileNum, int x, int y, BufferedImage tileset) {
         convertNumToTile(tileNum, x, y);
+        rebuildMap(tileNum, x, y, tileset);
+    }
+
+    /**
+     * @param numTile
+     * @param x
+     * @param y
+     */
+    private void rebuildMap(int numTile, int x, int y, BufferedImage tileset) {
+        Graphics g = this.getImage().getGraphics();
+
+        int xT = numTile % 12 * 16;
+        int yT = numTile / 12 * 16;
+
+        g.drawImage(tileset.getSubimage(xT, yT, 16, 16), x * 16, y * 16, null);
     }
 
     /**

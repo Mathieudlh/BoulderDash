@@ -17,8 +17,9 @@ public interface Mapable {
     /**
      * @param x
      * @param y
+     * @param tileset
      */
-    void setTile(int tileNum, int x, int y);
+    void setTile(int tileNum, int x, int y, BufferedImage tileset);
 
     /**
      * @return BufferedImage

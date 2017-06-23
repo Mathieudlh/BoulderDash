@@ -163,8 +163,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
         }
 
         if (tileNum == 1 || tileNum == 4) {
-            map.setTile(2, player.getX() / 16, player.getY() / 16);
-            rebuildMap(2, player.getX(), player.getY());
+            map.setTile(2, player.getX() / 16, player.getY() / 16, this.getModel().getTileset());
 
             if (tileNum == 4) {
                 map.setScore(map.getScore() + 1);
@@ -183,22 +182,22 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private void manageTileMoveable() {
         Mapable map = this.getModel().getMap();
 
-        for (int y = 0; y < map.getHeight(); y++) {
-            for (int x = 0; x < map.getWidth(); x++) {
+        for (int y = map.getHeight() - 1; y > 0; y--) {
+            for (int x = map.getWidth() - 1; x > 0; x--) {
                 Tileable tile = map.getTile(x, y);
                 if (tile.isFallable() && map.getTile(x, y + 1).getNumber() == 2) {
-                    if (this.getModel().getPlayer().getY() / 16 == y + 1) {
-                        if (tile.getNumber() == 3) {
-                            toggleGameOver();
+
+                    if (tile.getNumber() == 3) {
+                        if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
+                                this.getModel().getPlayer().getX() / 16 == x) {
+                            return;
                         }
                     }
 
-                    if(tile.getNumber() != 4 || this.getModel().getPlayer().getY() / 16 != y) {
-                        map.setTile(2, x, y);
-                        map.setTile(tile.getNumber(), x, y + 1);
-                        rebuildMap(2, x * 16, y * 16); //TODO move rebuild to Map
-                        rebuildMap(tile.getNumber(), x * 16, (y + 1) * 16);
-                    }
+                    BufferedImage tileset = this.getModel().getTileset();
+
+                    map.setTile(2, x, y, tileset);
+                    map.setTile(tile.getNumber(), x, y + 1, tileset);
                 }
             }
         }
@@ -228,15 +227,6 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.getModel().getMap().setImage(tmp);
     }
 
-    private void rebuildMap(int numTile, int x, int y) {
-        Graphics g = this.getModel().getMap().getImage().getGraphics();
-
-        int xT = numTile % 12 * 16;
-        int yT = numTile / 12 * 16;
-
-        g.drawImage(this.getModel().getTileset().getSubimage(xT, yT, 16, 16), x, y, null);
-    }
-
     /**
      * Method that render the game
      */
@@ -254,6 +244,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.getView().drawScore(this.getModel().getMap().getScore());
     }
 
+    /**
+     * Exit the game
+     */
     private void exitGame() {
         this.getView().closeWindow();
         System.exit(0);
