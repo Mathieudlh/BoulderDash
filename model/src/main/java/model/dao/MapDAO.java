@@ -8,12 +8,12 @@ import java.util.ArrayList;
 /**
  * Created by Utilisateur on 21/06/2017.
  */
-public abstract class mapDAO extends AbstractDAO {
+public abstract class MapDAO extends AbstractDAO {
 
     /**
      * Constructor
      */
-    public mapDAO() {}
+    public MapDAO() {}
 
     /**
      * Read the map from DB
@@ -45,12 +45,17 @@ public abstract class mapDAO extends AbstractDAO {
         return result;
     }
 
-    public ArrayList getEnemyPos(int id) throws SQLException {
+    /**
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    public static ArrayList<Enemy> getEnemies(int id) throws SQLException {
 
         ResultSet result;
-        ArrayList enemies = null;
+        ArrayList<Enemy> enemies = null;
         int x, y;
-        result = mapDAO.getPos(id);
+        result = MapDAO.getPos(id);
         while (result.next()) {
             x = result.getInt("pos_x");
             y = result.getInt("pos_y");
