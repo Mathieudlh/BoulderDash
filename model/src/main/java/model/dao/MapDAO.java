@@ -43,10 +43,6 @@ public abstract class MapDAO extends AbstractDAO {
         Connection conn = boulderDashBDD.getConnection();
         Statement state = conn.createStatement();
         ResultSet result = state.executeQuery("CALL getPos(" + id + ")");
-        //final CallableStatement callStatementGetPos = prepareCall("{call getPos(?)}");
-        //callStatementGetPos.setInt(1, id);
-        //final ResultSet result = callStatementGetPos.getResultSet();
-
         return result;
     }
 
@@ -58,14 +54,14 @@ public abstract class MapDAO extends AbstractDAO {
     public static ArrayList<Enemyable> getEnemies(int id) throws SQLException {
 
         ResultSet result;
-        ArrayList<Enemyable> enemies = null;
+        ArrayList<Enemyable> enemies = new ArrayList<>();
         result = MapDAO.getPos(id);
         if(result != null) {
             while (result.next()) {
                 int x = result.getInt("pos_x");
                 int y = result.getInt("pos_y");
 
-                Enemyable enemy = new Enemy(x, y);
+                Enemyable enemy = new Enemy(x * 16, y * 16);
 
                 enemies.add(enemy);
 
