@@ -39,9 +39,13 @@ public abstract class MapDAO extends AbstractDAO {
     }
 
     private static ResultSet getPos(int id) throws SQLException {
-        final CallableStatement callStatementGetPos = prepareCall("{call getPos(?)}");
-        callStatementGetPos.setInt(1, id);
-        final ResultSet result = callStatementGetPos.getResultSet();
+        BoulderDashBDDConnector boulderDashBDD = BoulderDashBDDConnector.getInstance();
+        Connection conn = boulderDashBDD.getConnection();
+        Statement state = conn.createStatement();
+        ResultSet result = state.executeQuery("CALL getPos(" + id + ")");
+        //final CallableStatement callStatementGetPos = prepareCall("{call getPos(?)}");
+        //callStatementGetPos.setInt(1, id);
+        //final ResultSet result = callStatementGetPos.getResultSet();
 
         return result;
     }
