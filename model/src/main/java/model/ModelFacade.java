@@ -1,6 +1,6 @@
 package model;
 
-import model.dao.mapDAO;
+import model.dao.MapDAO;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -43,12 +43,12 @@ public class ModelFacade implements IModel {
 
     /**
      * @param id
-     * @return mapDAO
+     * @return MapDAO
      * @throws SQLException
      */
     @Override
     public String readMap(int id) throws SQLException {
-        return mapDAO.readMap(id);
+        return MapDAO.readMap(id);
     }
 
     /**
