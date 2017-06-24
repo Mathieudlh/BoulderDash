@@ -23,6 +23,11 @@ public class ModelFacade implements IModel {
     private Map map;
 
     /**
+     * Map ID
+     */
+    private int map_id;
+
+    /**
      * Entities
      */
     private ArrayList<Entityable> entities;
@@ -30,11 +35,12 @@ public class ModelFacade implements IModel {
     /**
      * Instantiates a new model facade.
      */
-    public ModelFacade() {
+    public ModelFacade(int map_id) {
         super();
 
         try {
-            map = new Map(this.readMap(1));
+            this.map_id = map_id;
+            map = new Map(this.readMap(this.map_id));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,6 +55,11 @@ public class ModelFacade implements IModel {
     @Override
     public String readMap(int id) throws SQLException {
         return MapDAO.readMap(id);
+    }
+
+    @Override
+    public ArrayList<Enemyable> getEnemies(int id) throws SQLException {
+        return MapDAO.getEnemies(id);
     }
 
     /**
@@ -72,6 +83,10 @@ public class ModelFacade implements IModel {
      */
     public Map getMap() {
         return map;
+    }
+
+    public int getMapID() {
+        return map_id;
     }
 
     /**

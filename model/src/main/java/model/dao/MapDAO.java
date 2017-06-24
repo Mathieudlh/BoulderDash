@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.Enemy;
+import model.Enemyable;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -50,18 +51,21 @@ public abstract class MapDAO extends AbstractDAO {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<Enemy> getEnemies(int id) throws SQLException {
+    public static ArrayList<Enemyable> getEnemies(int id) throws SQLException {
 
         ResultSet result;
-        ArrayList<Enemy> enemies = null;
-        int x, y;
+        ArrayList<Enemyable> enemies = null;
         result = MapDAO.getPos(id);
-        while (result.next()) {
-            x = result.getInt("pos_x");
-            y = result.getInt("pos_y");
+        if(result != null) {
+            while (result.next()) {
+                int x = result.getInt("pos_x");
+                int y = result.getInt("pos_y");
 
-            enemies.add(new Enemy(x,y));
+                Enemyable enemy = new Enemy(x, y);
 
+                enemies.add(enemy);
+
+            }
         }
         return enemies;
     }

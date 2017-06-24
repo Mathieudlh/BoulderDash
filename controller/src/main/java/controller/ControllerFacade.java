@@ -23,7 +23,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
     /**
      * The model.
      */
-    private final IModel model;
+    private IModel model;
 
     /**
      * State of the game
@@ -41,6 +41,18 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.isGameOver = false;
 
         this.buildMap();
+
+        try {
+            System.out.println(this.getModel().getEnemies(this.getModel().getMapID()));
+
+            if(this.getModel().getEnemies(this.getModel().getMapID()) != null) {
+                for (Enemyable enemy : this.getModel().getEnemies(this.getModel().getMapID())) {
+                    this.getModel().addEntity((Entityable) enemy);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setView(final IView view) {
@@ -60,7 +72,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
         if(this.getModel().getMap().getNbDiamond() == this.getModel().getMap().getScore())
             this.getView().displayMessage("Bravo! Vous avez gagné.");
         else
-            this.getView().displayMessage("Dommage! :/ Vous avez perdu.");
+            this.getView().displayMessage("Dommage! :/ Vous aurez plus de chance la prochaine fois.");
 
         this.exitGame();
     }

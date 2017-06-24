@@ -1,7 +1,6 @@
 package model;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by Utilisateur on 16/06/2017.
  */
-public class Enemy extends Entity{
+public class Enemy extends Entity implements Enemyable {
 
     private BufferedImage image;
 
@@ -17,8 +16,8 @@ public class Enemy extends Entity{
      * @param x
      * @param y
      */
-    public Enemy(int x, int y){
-        super(x,y);
+    public Enemy(int x, int y) {
+        super(x, y);
 
         try {
             image = ImageIO.read(new File("res/textures/tileset.png"));

@@ -22,12 +22,10 @@ public abstract class Main {
      * @param args the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ModelFacade());
+        final ControllerFacade controller = new ControllerFacade(new ModelFacade(5));
         controller.setView(new ViewFacade(controller));
 
         controller.getModel().addEntity(new Player());
-        controller.getModel().addEntity(new Enemy(16, 16));
-        controller.getModel().addEntity(new Enemy(48, 48));
 
         try {
             controller.start();

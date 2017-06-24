@@ -3,7 +3,6 @@ package model;
 import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -20,6 +19,8 @@ public interface IModel {
      */
     String readMap(int id) throws SQLException;
 
+    ArrayList<Enemyable> getEnemies(int id) throws SQLException;
+
     /**
      * @param entity
      */
@@ -34,6 +35,11 @@ public interface IModel {
      * @return Mapable
      */
     Mapable getMap();
+
+    /**
+     * @return Map ID
+     */
+    int getMapID();
 
     /**
      * @return Entityable
