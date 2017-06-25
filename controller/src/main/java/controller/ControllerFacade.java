@@ -31,6 +31,11 @@ public class ControllerFacade implements IController, OrderPerformerable {
     private boolean isGameOver;
 
     /**
+     * Timer
+     */
+    private long elapsed;
+
+    /**
      * Instantiates a new controller facade.
      *
      * @param model the model
@@ -39,12 +44,11 @@ public class ControllerFacade implements IController, OrderPerformerable {
         super();
         this.model = model;
         this.isGameOver = false;
+        this.elapsed = 0;
 
         this.buildMap();
 
         try {
-            System.out.println(this.getModel().getEnemies(this.getModel().getMapID()));
-
             if(this.getModel().getEnemies(this.getModel().getMapID()) != null) {
                 for (Enemyable enemy : this.getModel().getEnemies(this.getModel().getMapID())) {
                     this.getModel().addEntity((Entityable) enemy);
@@ -110,7 +114,10 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 toggleGameOver();
             }
 
-            manageTileMoveable();
+            if(System.nanoTime() - elapsed >= 750000000) {
+                elapsed = System.nanoTime();
+                manageTileMoveable();
+            }
             manageCollision();
 
             this.render();
@@ -204,7 +211,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tile.getNumber() == 3) {
                         if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
                                 this.getModel().getPlayer().getX() / 16 == x) {
-//                            toggleGameOver();
+                            toggleGameOver();
                             return;
                         }
                     }
