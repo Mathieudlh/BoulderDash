@@ -73,7 +73,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
 
         this.gameLoop();
 
-        if(this.getModel().getMap().getNbDiamond() == this.getModel().getMap().getScore())
+        if(this.getModel().getMap().getNbDiamond() == this.getModel().getMap().getScore() && this.getModel().getPlayer().getIsAlive())
             this.getView().displayMessage("Bravo! Vous avez gagné.");
         else
             this.getView().displayMessage("Dommage! :/ Vous aurez plus de chance la prochaine fois.");
@@ -211,7 +211,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tile.getNumber() == 3) {
                         if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
                                 this.getModel().getPlayer().getX() / 16 == x) {
+                            this.getModel().getPlayer().setIsAlive(false);
                             toggleGameOver();
+                            
                             return;
                         }
                     }
