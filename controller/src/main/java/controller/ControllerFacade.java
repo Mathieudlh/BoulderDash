@@ -195,6 +195,13 @@ public class ControllerFacade implements IController, OrderPerformerable {
             if (map.getScore() == this.getModel().getMap().getNbDiamond())
                 toggleGameOver();
         }
+
+        for (Entityable entity : this.getModel().getEntities()) {
+            if(!entity.isPlayer()) {
+                if(entity.getX() == player.getX() && entity.getY() == player.getY())
+                    toggleGameOver();
+            }
+        }
     }
 
     /**
