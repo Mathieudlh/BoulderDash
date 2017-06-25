@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -30,7 +29,7 @@ public abstract class Entity implements Entityable {
     /**
      *
      */
-    public Entity(){
+    public Entity() {
 
     }
 
@@ -38,7 +37,7 @@ public abstract class Entity implements Entityable {
      * @param x
      * @param y
      */
-    public Entity(int x, int y){
+    public Entity(int x, int y) {
         this.x = x;
         this.y = y;
 
@@ -48,7 +47,7 @@ public abstract class Entity implements Entityable {
      * @return int
      */
     @Override
-    public int getX(){
+    public int getX() {
         return x;
     }
 
@@ -56,7 +55,7 @@ public abstract class Entity implements Entityable {
      * @return int
      */
     @Override
-    public int getY(){
+    public int getY() {
         return y;
     }
 
@@ -64,7 +63,7 @@ public abstract class Entity implements Entityable {
      * @param x
      */
     @Override
-    public void setX(int x){
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -72,7 +71,7 @@ public abstract class Entity implements Entityable {
      * @param y
      */
     @Override
-    public void setY(int y){
+    public void setY(int y) {
         this.y = y;
     }
 
@@ -80,7 +79,7 @@ public abstract class Entity implements Entityable {
      * @return boolean
      */
     @Override
-    public boolean getIsAlive(){
+    public boolean getIsAlive() {
         return isAlive;
     }
 
@@ -88,7 +87,7 @@ public abstract class Entity implements Entityable {
      * @param isAlive
      */
     @Override
-    public void setIsAlive(boolean isAlive){
+    public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
     }
 

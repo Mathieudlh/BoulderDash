@@ -39,13 +39,8 @@ public class Player extends Entity implements Playable {
         return true;
     }
 
-    /**
-     * Move
-     */
     @Override
-    public void move() {
-
-    }
+    public void move(Mapable map) {}
 
     /**
      * @return BufferedImage

@@ -106,7 +106,7 @@ public class ControllerFacade implements IController, OrderPerformerable {
         while (!isGameOver) {
             if (this.getModel().getEntities() != null) {
                 for (Entityable entity : this.getModel().getEntities()) {
-                    entity.move();
+                    entity.move(this.getModel().getMap());
                 }
             }
 
@@ -211,9 +211,10 @@ public class ControllerFacade implements IController, OrderPerformerable {
                     if (tile.getNumber() == 3) {
                         if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
                                 this.getModel().getPlayer().getX() / 16 == x) {
+
                             this.getModel().getPlayer().setIsAlive(false);
                             toggleGameOver();
-                            
+
                             return;
                         }
                     }

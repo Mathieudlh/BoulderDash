@@ -43,9 +43,9 @@ public interface Entityable {
     boolean isPlayer();
 
     /**
-     *
+     * Method to move the entity
      */
-    void move();
+    void move(Mapable map);
 
     /**
      * @param direction
