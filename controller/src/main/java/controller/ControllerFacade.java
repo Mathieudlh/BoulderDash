@@ -74,9 +74,9 @@ public class ControllerFacade implements IController, OrderPerformerable {
         this.gameLoop();
 
         if(this.getModel().getMap().getNbDiamond() == this.getModel().getMap().getScore() && this.getModel().getPlayer().getIsAlive())
-            this.getView().displayMessage("Bravo! Vous avez gagné.");
+            this.getView().displayMessage("Congrats! You won!");
         else
-            this.getView().displayMessage("Dommage! :/ Vous aurez plus de chance la prochaine fois.");
+            this.getView().displayMessage("Oops! :/ You lost.");
 
         this.exitGame();
     }
