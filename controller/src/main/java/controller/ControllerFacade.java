@@ -216,13 +216,19 @@ public class ControllerFacade implements IController, OrderPerformerable {
                 if (tile.isFallable() && map.getTile(x, y + 1).getNumber() == 2) {
 
                     if (tile.getNumber() == 3) {
-                        if (this.getModel().getPlayer().getY() / 16 == y + 1 &&
-                                this.getModel().getPlayer().getX() / 16 == x) {
-
-                            this.getModel().getPlayer().setIsAlive(false);
-                            toggleGameOver();
-
-                            return;
+                        for(Entityable entity : this.getModel().getEntities()) {
+                            if (entity.getY() / 16 == y + 1 &&
+                                    entity.getX() / 16 == x) {
+                                if(entity.isPlayer()) {
+                                    this.getModel().getPlayer().setIsAlive(false);
+                                    toggleGameOver();
+                                    return;
+                                }
+                                else {
+                                    this.getModel().getEntities().remove(entity);
+                                    return;
+                                }
+                            }
                         }
                     }
 
